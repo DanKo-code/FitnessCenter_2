@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="FitnessCenter.Views.Windows.Main.UserControls.Abonements.AbonementsCore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Abonements"
+             
+             
+             
+             xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
+             
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:AbonementsViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    
+    
+    <Grid>
+
+        <Grid.DataContext>
+            <vm:AbonementsViewModel/>
+        </Grid.DataContext>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="0">
+
+            <StackPanel Margin="0 0 100 0" Orientation="Horizontal">
+                <Label Content="Вид"/>
+                <ComboBox Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Поиск"/>
+                <TextBox Width="100"/>
+            </StackPanel>
+
+            <Button Command="{Binding ReloudAbonementsList}" Content="R" Width="40" Height="40" Margin="100 0 0 0"/>
+
+        </StackPanel>
+
+        <!--Коллекция абонементов-->
+        <ListView Grid.Row="1" Background="Transparent" ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
+                  HorizontalContentAlignment="Center" 
+                      VerticalContentAlignment="Center">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate >
+                    <UniformGrid Columns="2" />
+                    <!--<StackPanel Orientation="Horizontal"/>-->
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:AbonementItem/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
+        <Button Command="{Binding AddOrder}" Background="#CCFF00" Width="500" Height="30" Style="{StaticResource LoginButtonStyle}" Grid.Row="2" Content="Оформить"/>
+    </Grid>
+</UserControl>

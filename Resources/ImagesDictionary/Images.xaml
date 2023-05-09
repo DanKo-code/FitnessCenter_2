@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:String x:Key="Imgage1">/Resources/Images/1.jpg</v:String>
+    <v:String x:Key="Imgage2">/Resources/Images/2.jpg</v:String>
+    <v:String x:Key="Imgage3">/Resources/Images/3.jpg</v:String>
+    <v:String x:Key="Imgage4">/Resources/Images/4.jpg</v:String>
+    <v:String x:Key="Imgage5">/Resources/Images/5.jpg</v:String>
+    
+</ResourceDictionary>
