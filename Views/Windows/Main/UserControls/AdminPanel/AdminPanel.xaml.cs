@@ -28,5 +28,14 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.AdminPanel
             InitializeComponent();
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void AbonementsPanel_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

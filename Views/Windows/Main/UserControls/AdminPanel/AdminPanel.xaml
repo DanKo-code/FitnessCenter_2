@@ -11,6 +11,8 @@
              
              xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
              
+             xmlns:help="clr-namespace:FitnessCenter.Helpers"
+             
              xmlns:uc="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.AdminPanel"
              
              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:AdminPanelViewModel}"
@@ -19,7 +21,24 @@
     <UserControl.Resources>
         <local:AdminPanelViewModel x:Key="ViewModell"/>
         <con:ServicesListToStringConverter x:Key="ServicesListToStringConverter"/>
+
+        <ContextMenu x:Key="ForOrders">
+            <MenuItem Header="Одобрить" Command="{Binding ApproveOrder}"/>
+            <MenuItem Header="Отклонить" Command="{Binding RejectOrder}"/>
+        </ContextMenu>
+
+
+        <ContextMenu x:Key="ForAbonements" DataContext="{StaticResource ViewModell}">
+            <MenuItem Header="Сохранить" Command="{Binding SaveAllChanges}"/>
+            <MenuItem Header="Удалить" Command="{Binding RemoveAbonement}"/>
+        </ContextMenu>
+
+        <ContextMenu x:Key="MyListBoxContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+            <MenuItem Header="Добавить/Изменить фото" Command="{Binding SetServicePhoto}"/>
+            <MenuItem Header="Удалить" Visibility="{Binding }" Command="{Binding}"/>
+        </ContextMenu>
     </UserControl.Resources>
+
 
     <Grid x:Name="AdminContext" DataContext="{Binding Source={StaticResource ViewModell}}">
 
@@ -47,7 +66,7 @@
 
             </StackPanel>
 
-            <uc:AbonementsPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding AbonementsPanelVisibility}"/>
+            <uc:AbonementsPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding AbonementsPanelVisibility}" Loaded="AbonementsPanel_Loaded"/>
             <uc:OrdersPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding OrdersPanelVisibility}"/>
             <uc:CouchesPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding CouchesPanelVisibility}"/>
 
@@ -91,17 +110,17 @@
 
         <GridSplitter Width="2" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
-        <ListView SelectedItem="{Binding SelectedProducts}" ItemsSource="{Binding SearchedList}" Background="Green"  Grid.Column="2" Visibility="{Binding AbonementsListVisibility}">
+        <ListView SelectedItem="{Binding SelectedProducts}" ItemsSource="{Binding SearchedList}" Background="Green"  Grid.Column="2" Visibility="{Binding AbonementsListVisibility}" ContextMenu="{StaticResource ForAbonements}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Title}" 
+                                <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -145,29 +164,57 @@
                     <GridViewColumn Header="Услуги:">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <!--<TextBlock  Text="{Binding Services, Converter={StaticResource ServicesListToStringConverter}, UpdateSourceTrigger=PropertyChanged}" 
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <!--<i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>-->
+
+                                    <!--<TextBlock  Text="{Binding Services, Converter={StaticResource ServicesListToStringConverter}, UpdateSourceTrigger=PropertyChanged}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
                                            Margin="10,0,0,0"></TextBlock>-->
-                                <ListBox ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListBox Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
 
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                                    <TextBlock Text="{Binding Title}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!--<help:MyListBox Grid.Row="1" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
+
+                                        <help:MyListBox.ItemTemplate>
+                                            <DataTemplate>
                                                 <TextBlock Text="{Binding Title}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
+                                            </DataTemplate>
+                                        </help:MyListBox.ItemTemplate>
+
+
+                                    </help:MyListBox>-->
+                                </Grid>
                                 
+                                
+
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -198,7 +245,7 @@
             </ListView.View>
         </ListView>
 
-        <ListView SelectedItem="{Binding SelectedOrders}" ItemsSource="{Binding OrdersList}" Background="Green"  Grid.Column="2" Visibility="{Binding OrdersListVisibility}">
+        <ListView ContextMenu="{StaticResource ForOrders}" SelectedItem="{Binding SelectedOrders}" ItemsSource="{Binding OrdersList}" Background="Green"  Grid.Column="2" Visibility="{Binding OrdersListVisibility}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Имя клиента">
