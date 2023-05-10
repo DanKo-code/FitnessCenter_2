@@ -35,6 +35,8 @@ namespace FitnessCenter.ViewModel
         //Список заказов
         private ObservableCollection<Orders> _ordersList;
 
+        public ObservableCollection<Couches> CouchesList { get; set; }
+
         public ObservableCollection<Orders> OrdersList
         {
             get => _ordersList;
@@ -50,6 +52,65 @@ namespace FitnessCenter.ViewModel
         }
 
         #region Accessors (helpers for ui design)
+
+        #region SelectedCouches
+        private Couches _selectedCouches;
+
+        public Couches SelectedCouches
+        {
+            get => _selectedCouches;
+
+            set
+            {
+                if (value != null && _selectedCouches != value)
+                {
+                    _selectedCouches = value;
+                    OnPropertyChanged(nameof(SelectedCouches));
+
+                    if (MyEvent != null)
+                    {
+                        MyEvent(this, EventArgs.Empty);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region CouchesListVisibility
+        private Visibility _couchesListVisibility = Visibility.Collapsed;
+
+        public Visibility CouchesListVisibility
+        {
+            get => _couchesListVisibility;
+
+            set
+            {
+                if (_couchesListVisibility != value)
+                {
+                    _couchesListVisibility = value;
+                    OnPropertyChanged(nameof(CouchesListVisibility));
+                }
+            }
+        }
+        #endregion
+
+        #region CouchesPanelVisibility
+        private Visibility _couchesPanelVisibility = Visibility.Collapsed;
+
+        public Visibility CouchesPanelVisibility
+        {
+            get => _couchesPanelVisibility;
+
+            set
+            {
+                if (_couchesPanelVisibility != value)
+                {
+                    _couchesPanelVisibility = value;
+                    OnPropertyChanged(nameof(CouchesPanelVisibility));
+                }
+            }
+        }
+        #endregion
 
         #region RSelectedItem
         private Services _rSelectedItem;
@@ -344,6 +405,8 @@ namespace FitnessCenter.ViewModel
 
 
         #region Commands
+
+
 
         #region ChangeServicesListVisibility 
         public ICommand ChangeServicesListVisibility { get; }
@@ -651,7 +714,9 @@ namespace FitnessCenter.ViewModel
         {
             AbonementsPanelVisibility = Visibility.Visible;
             OrdersPanelVisibility = Visibility.Collapsed;
+            CouchesPanelVisibility = Visibility.Collapsed;
 
+            CouchesListVisibility = Visibility.Collapsed;
             AbonementsListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
 
@@ -670,12 +735,38 @@ namespace FitnessCenter.ViewModel
         {
             OrdersPanelVisibility = Visibility.Visible;
             AbonementsPanelVisibility= Visibility.Collapsed;
+            CouchesPanelVisibility= Visibility.Collapsed;
 
+
+            CouchesListVisibility = Visibility.Collapsed;
             OrdersListVisibility = Visibility.Visible;
             AbonementsListVisibility = Visibility.Collapsed;
             BottomAbonementsPanelVisibility = Visibility.Collapsed;
 
             OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder());
+        }
+        #endregion
+
+        #region ShowCouchesPanel 
+        public ICommand ShowCouchesPanel { get; }
+
+        private bool CanShowCouchesPanelCommand(object p)
+        {
+            return true;
+        }
+        private void OnShowCouchesPanelCommand(object p)
+        {
+            OrdersPanelVisibility = Visibility.Collapsed;
+            AbonementsPanelVisibility = Visibility.Collapsed;
+            CouchesPanelVisibility = Visibility.Visible;
+
+            CouchesListVisibility = Visibility.Visible;
+            OrdersListVisibility = Visibility.Collapsed;
+            AbonementsListVisibility = Visibility.Collapsed;
+            BottomAbonementsPanelVisibility = Visibility.Collapsed;
+
+            //TODO Заполнения списка всех тренеров 2
+            //CouchesList = new ObservableCollection<Couches>(context.CouchesRepo.GetAllCouches());
         }
         #endregion
 
@@ -748,6 +839,8 @@ namespace FitnessCenter.ViewModel
 
         public AdminPanelViewModel() 
         {
+            ShowCouchesPanel = new RelayCommand(OnShowCouchesPanelCommand, CanShowCouchesPanelCommand);
+
             SetServicePhoto = new RelayCommand(OnSetServicePhotoCommand, CanSetServicePhotoCommand);
 
             RemoveService = new RelayCommand(OnRemoveServiceCommand, CanRemoveServiceCommand);
@@ -805,6 +898,9 @@ namespace FitnessCenter.ViewModel
             OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder());
 
             RejectOrder = new RelayCommand(OnRejectOrderCommand, CanRejectOrderCommand);
+
+            //TODO Заполнения списка всех тренеров
+            //CouchesList = new ObservableCollection<Couches>(context.CouchesRepo.GetAllCouches());
         }
     }
 }

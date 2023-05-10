@@ -100,37 +100,7 @@
                         <Button Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
                     </Grid>
 
-                    <!--<ListBox x:Name="myListBox" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Title}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding SelectedServices}" 
-                                   CommandParameter="{Binding ElementName=myListBox, Path=SelectedItems}" />
-                                   --><!--CommandParameter="{Binding SelectedItems, RelativeSource={RelativeSource AncestorType=ListBox}}" />--><!--
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-
-                    </ListBox>-->
-
                     <help:MyListBox x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
-
-                        <!--<help:MyListBox.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListBoxItem}">
-                                <Setter Property="ContextMenu">
-                                    <Setter.Value>
-                                        <ContextMenu x:Name="ContextMenu" >
-                                            <MenuItem Header="Добавить/Изменить фото"/>
-                                            <MenuItem Header="Удалить"/>
-                                        </ContextMenu>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </help:MyListBox.ItemContainerStyle>-->
 
                         <help:MyListBox.ItemTemplate>
                             <DataTemplate>

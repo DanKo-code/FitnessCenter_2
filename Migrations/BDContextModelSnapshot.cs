@@ -37,6 +37,21 @@ namespace FitnessCenter.Migrations
                     b.ToTable("AbonementsServices");
                 });
 
+            modelBuilder.Entity("CouchesServices", b =>
+                {
+                    b.Property<Guid>("CouchesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ServicesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CouchesId", "ServicesId");
+
+                    b.HasIndex("ServicesId");
+
+                    b.ToTable("CouchesServices");
+                });
+
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Abonements", b =>
                 {
                     b.Property<Guid>("Id")
@@ -111,6 +126,29 @@ namespace FitnessCenter.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Couches", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Couches");
+                });
+
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Orders", b =>
                 {
                     b.Property<Guid>("Id")
@@ -159,6 +197,21 @@ namespace FitnessCenter.Migrations
                     b.HasOne("FitnessCenter.BD.EntitiesBD.Abonements", null)
                         .WithMany()
                         .HasForeignKey("AbonementsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FitnessCenter.BD.EntitiesBD.Repositories.Services", null)
+                        .WithMany()
+                        .HasForeignKey("ServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CouchesServices", b =>
+                {
+                    b.HasOne("FitnessCenter.BD.EntitiesBD.Couches", null)
+                        .WithMany()
+                        .HasForeignKey("CouchesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

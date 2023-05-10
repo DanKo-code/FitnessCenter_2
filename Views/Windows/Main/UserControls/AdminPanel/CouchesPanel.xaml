@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.CouchesPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.AdminPanel"
+             
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:help="clr-namespace:FitnessCenter.Helpers"
+
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ContextMenu x:Key="MyListBoxContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+            <MenuItem Header="Добавить/Изменить фото" Command="{Binding SetServicePhoto}"/>
+            <MenuItem Header="Удалить" Visibility="{Binding }" Command="{Binding}"/>
+        </ContextMenu>
+    </UserControl.Resources>
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image Width="100" Height="100" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\Images\sleep.jpg"/>
+
+            <StackPanel Grid.Column="1">
+                <StackPanel VerticalAlignment="Center">
+                    <Label Content="Имя"/>
+                    <TextBox/>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Content="Описанике"/>
+            <TextBox Grid.Row="1"/>
+        </Grid>
+
+        <!--#region Секция для добавления сервиса-->
+        <StackPanel Grid.Row="2" Margin="5">
+            <Label Content="Услуги:"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                            <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox  Text="{Binding NewServiceName}" Grid.Column="0" Background="Aqua" Grid.Row="0">
+                        <TextBox.ContextMenu>
+                            <ContextMenu Visibility="Collapsed"/>
+                        </TextBox.ContextMenu>
+                    </TextBox>
+
+                    <Button Command="{Binding AddService}" Content="Добавить" Grid.Column="1"/>
+                    <Button Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
+                </Grid>
+
+                <help:MyListBox x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
+
+                    <help:MyListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </help:MyListBox.ItemTemplate>
+
+
+                </help:MyListBox>
+
+
+
+            </Grid>
+        </StackPanel>
+
+
+
+        <!--#endregion-->
+
+
+    </Grid>
+</UserControl>

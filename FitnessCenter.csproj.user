@@ -34,6 +34,9 @@
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\AdminPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\Couches.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\UserControls\ForMain.xaml.cs">
@@ -87,6 +93,9 @@
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\AdminPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -94,6 +103,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\Couches.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\ForMain.xaml">

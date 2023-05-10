@@ -17,6 +17,17 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         private ClientRepository clientRepo;
         private OrderRepository orderRepo;
         private ServiceRepository serviceRepo;
+        private CouchesRepository coucheRepo;
+
+        public CouchesRepository CoucheRepo
+        {
+            get
+            {
+                if (coucheRepo == null)
+                    coucheRepo = new CouchesRepository(context);
+                return coucheRepo;
+            }
+        }
 
         public ServiceRepository ServiceRepo
         {

@@ -41,12 +41,15 @@
             <StackPanel Margin="10" Orientation="Horizontal" Grid.Row="0">
                 <Button Command="{Binding ShowAbonementsPanel}" Content="Абонементы" Margin="10" Width="100" Height="30"/>
                 <Button Command="{Binding ShowOrdersPanel}" Content="Заказы" Margin="10" Width="100" Height="30"/>
-                <Button Content="Пользователи" Margin="10" Width="100" Height="30"/>
+                <Button Command="{Binding ShowCouchesPanel}" Content="Тренера" Margin="10" Width="100" Height="30"/>
+                <!--<Button Content="Пользователи" Margin="10" Width="100" Height="30"/>-->
+                
 
             </StackPanel>
 
             <uc:AbonementsPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding AbonementsPanelVisibility}"/>
             <uc:OrdersPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding OrdersPanelVisibility}"/>
+            <uc:CouchesPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding CouchesPanelVisibility}"/>
 
             <Grid Grid.Row="2" Visibility="{Binding BottomAbonementsPanelVisibility}">
                 <Grid.ColumnDefinitions>
@@ -319,6 +322,73 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <ListView SelectedItem="{Binding SelectedCouches}" ItemsSource="{Binding CouchesList}" Background="Green"  Grid.Column="2" Visibility="{Binding CouchesListVisibility}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фото:">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Photo}" 
+                                           Width="50"
+                                           Height="50"
+                                           Margin="10,0,0,0"></Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Имя">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Описание:">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Услуги:">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                                <TextBlock Text="{Binding Title}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 
 
