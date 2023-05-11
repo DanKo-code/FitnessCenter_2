@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="/Resources/LoginRegistrationStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/ImagesDictionary/Images.xaml"/>
                 <ResourceDictionary Source="/Resources/AdminPanelView/AdminPanelView.xaml"/>
+                <ResourceDictionary Source="/Resources/AdminPanelStyles.xaml"/>
                 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

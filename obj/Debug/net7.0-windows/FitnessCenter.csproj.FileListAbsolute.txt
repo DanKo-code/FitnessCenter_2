@@ -290,3 +290,4 @@ D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и dele
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\Couches.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Resources\AdminPanelStyles.baml

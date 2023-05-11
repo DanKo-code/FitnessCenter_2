@@ -18,6 +18,7 @@ namespace FitnessCenter.BD
         public DbSet<Clients> Clients { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Services> Services { get; set; }
+        public DbSet<Couches> Couches { get; set; }
 
 
         //public BDContext() => Database.EnsureCreated();

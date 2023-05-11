@@ -13,17 +13,16 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
 
         public CouchesRepository(BDContext context) => this.context = context;
 
-        //public List<Couches> GetAllCouches()
-        //{
-        //    try
-        //    {
-        //        //TODO СХУЯЛИ НЕ ВИДЕН CONTEXT COUCHES!!!!???????????????
-        //        //return context.
-        //    }
-        //    catch
-        //    {
-        //        return new List<Couches>();
-        //    }
-        //}
+        public List<Couches> GetAllCouches()
+        {
+            try
+            {
+                return context.Couches.ToList();
+            }
+            catch
+            {
+                return new List<Couches>();
+            }
+        }
     }
 }

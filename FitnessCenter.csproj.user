@@ -57,6 +57,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Resources\AdminPanelStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\AdminPanelView\AdminPanelView.xaml">
       <SubType>Designer</SubType>
     </Page>

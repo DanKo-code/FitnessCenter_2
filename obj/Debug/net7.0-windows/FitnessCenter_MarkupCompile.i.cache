@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\App.xaml
-201715871941
+21-136349809
 
 761165232653
 2271214932518
-Resources\AdminPanelView\AdminPanelView.xaml;Resources\ImagesDictionary\Images.xaml;Resources\LoginRegistrationStyles.xaml;Views\Windows\LoginRegistration\LoginRegistration.xaml;Views\Windows\LoginRegistration\UserControls\LoginControl.xaml;Views\Windows\LoginRegistration\UserControls\RegistrationControl.xaml;Views\Windows\Main\Main.xaml;Views\Windows\Main\UserControls\Abonements\AbonementItem.xaml;Views\Windows\Main\UserControls\Abonements\AbonementsCore.xaml;Views\Windows\Main\UserControls\AdminPanel\AbonementsList.xaml;Views\Windows\Main\UserControls\AdminPanel\AbonementsPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\AdminPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml;Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml;Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml;Views\Windows\Main\UserControls\Couches\Couches.xaml;Views\Windows\Main\UserControls\ForMain.xaml;Views\Windows\Main\UserControls\Profile\OrderItem.xaml;Views\Windows\Main\UserControls\Profile\Profile.xaml;
+Resources\AdminPanelStyles.xaml;Resources\AdminPanelView\AdminPanelView.xaml;Resources\ImagesDictionary\Images.xaml;Resources\LoginRegistrationStyles.xaml;Views\Windows\LoginRegistration\LoginRegistration.xaml;Views\Windows\LoginRegistration\UserControls\LoginControl.xaml;Views\Windows\LoginRegistration\UserControls\RegistrationControl.xaml;Views\Windows\Main\Main.xaml;Views\Windows\Main\UserControls\Abonements\AbonementItem.xaml;Views\Windows\Main\UserControls\Abonements\AbonementsCore.xaml;Views\Windows\Main\UserControls\AdminPanel\AbonementsList.xaml;Views\Windows\Main\UserControls\AdminPanel\AbonementsPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\AdminPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml;Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml;Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml;Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml;Views\Windows\Main\UserControls\Couches\Couches.xaml;Views\Windows\Main\UserControls\ForMain.xaml;Views\Windows\Main\UserControls\Profile\OrderItem.xaml;Views\Windows\Main\UserControls\Profile\Profile.xaml;
 
-True
+False
 

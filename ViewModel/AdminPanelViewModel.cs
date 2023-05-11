@@ -221,10 +221,10 @@ namespace FitnessCenter.ViewModel
                     _selectedAbonement = value;
                     OnPropertyChanged(nameof(SelectedProducts));
 
-                    if(MyEvent != null)
+                    if (MyEvent != null)
                     {
                         MyEvent(this, EventArgs.Empty);
-                    }                    
+                    }
                 }
             }
         }
@@ -418,7 +418,7 @@ namespace FitnessCenter.ViewModel
 
         private void OnChangeServicesListVisibilityCommand(object p)
         {
-            if(ServicesListVisibility == Visibility.Visible)
+            if (ServicesListVisibility == Visibility.Visible)
             {
                 ServicesListVisibility = Visibility.Collapsed;
                 return;
@@ -466,7 +466,7 @@ namespace FitnessCenter.ViewModel
             {
                 MessageBox.Show("Услуга не найдена!");
                 return;
-            }    
+            }
 
             context.ServiceRepo.RemoveService(NewServiceName);
 
@@ -528,6 +528,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //***********************************************
         #region AddAbonement
         public ICommand AddAbonement { get; }
 
@@ -549,17 +550,18 @@ namespace FitnessCenter.ViewModel
 
             //Abonements temp = new Abonements(title, age, validity, visitingTime, amount, price, photo);
             Abonements temp = new Abonements { Id = new Guid(), Title = title, Age = age, Validity = validity, VisitingTime = visitingTime, Amount = amount, Price = price, Photo = photo };
-            
+
             SelectedProducts = new Abonements();
 
             AbonementsList.Add(temp);
             SearchedList.Add(temp);
             context.AbonementRepo.AddAbonement(temp);
 
-            
+
         }
         #endregion
 
+        //***********************************************
         #region Deselect 
         public ICommand Deselect { get; }
 
@@ -567,13 +569,13 @@ namespace FitnessCenter.ViewModel
         {
             foreach (Abonements item in AbonementsList)
             {
-                if(SelectedProducts.Equals(item))
+                if (SelectedProducts.Equals(item))
                 {
                     canAdd = false;
                     break;
                 }
 
-                    
+
             }
 
             return !canAdd;
@@ -594,6 +596,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //***********************************************
         #region RemoveAbonement
         public ICommand RemoveAbonement { get; }
 
@@ -611,6 +614,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //***********************************************
         #region SearchAbonementByName
         public ICommand SearchAbonementByName { get; }
 
@@ -623,7 +627,7 @@ namespace FitnessCenter.ViewModel
 
         private void OnSearchAbonementByNameCommand(object p)
         {
-           string pattern = SearchString;
+            string pattern = SearchString;
 
             SearchedList.Clear();
 
@@ -637,6 +641,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //***********************************************
         #region SortAbonementByName
         public ICommand SortAbonementByName { get; }
 
@@ -656,7 +661,7 @@ namespace FitnessCenter.ViewModel
             foreach (var item in temp)
             {
                 SearchedList.Add(item);
-            } 
+            }
         }
         #endregion
 
@@ -685,6 +690,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //***********************************************
         #region SaveAllChanges
         public ICommand SaveAllChanges { get; }
 
@@ -734,8 +740,8 @@ namespace FitnessCenter.ViewModel
         private void OnShowOrdersPanelCommand(object p)
         {
             OrdersPanelVisibility = Visibility.Visible;
-            AbonementsPanelVisibility= Visibility.Collapsed;
-            CouchesPanelVisibility= Visibility.Collapsed;
+            AbonementsPanelVisibility = Visibility.Collapsed;
+            CouchesPanelVisibility = Visibility.Collapsed;
 
 
             CouchesListVisibility = Visibility.Collapsed;
@@ -783,7 +789,7 @@ namespace FitnessCenter.ViewModel
         {
             ObservableCollection<Services> temp = new ObservableCollection<Services>();
 
-            if(context.AbonementRepo.GetAllAbonements().Find(x => x.Id == SelectedProducts.Id).Services != null)
+            if (context.AbonementRepo.GetAllAbonements().Find(x => x.Id == SelectedProducts.Id).Services != null)
             {
                 context.AbonementRepo.GetAllAbonements().Find(x => x.Id == SelectedProducts.Id).Services.Clear();
                 context.Save();
@@ -792,7 +798,7 @@ namespace FitnessCenter.ViewModel
             {
                 context.AbonementRepo.GetAllAbonements().Find(x => x.Id == SelectedProducts.Id).Services = new ObservableCollection<Services>();
             }
-            
+
 
 
 
@@ -804,7 +810,7 @@ namespace FitnessCenter.ViewModel
             }
 
             SelectedProducts.Services = temp;
-         
+
             //context.AbonementRepo.GetAllAbonements().Find(x=>x.Id == SelectedProducts.Id).Services.Clear();
             //context.AbonementRepo.GetAllAbonements().Find(x=>x.Id == SelectedProducts.Id).Services.;
         }
@@ -837,7 +843,7 @@ namespace FitnessCenter.ViewModel
 
         #endregion
 
-        public AdminPanelViewModel() 
+        public AdminPanelViewModel()
         {
             ShowCouchesPanel = new RelayCommand(OnShowCouchesPanelCommand, CanShowCouchesPanelCommand);
 
@@ -876,20 +882,8 @@ namespace FitnessCenter.ViewModel
             //заполнил смотрящего
             AbonementsList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
 
-            //foreach (Abonements abonement in AbonementsList)
-            //{
-            //    if(abonement.Services == null)
-            //        abonement.Services = new List<Services>();
-            //}
-
             SearchedList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
-
-            //foreach (Abonements abonement in SearchedList)
-            //{
-            //    if (abonement.Services == null)
-            //        abonement.Services = new List<Services>();
-            //}
-
+        
             ServicesList = new ObservableCollection<Services>(context.ServiceRepo.GetAllServices());
 
             //на начальном этапе
@@ -900,7 +894,7 @@ namespace FitnessCenter.ViewModel
             RejectOrder = new RelayCommand(OnRejectOrderCommand, CanRejectOrderCommand);
 
             //TODO Заполнения списка всех тренеров
-            //CouchesList = new ObservableCollection<Couches>(context.CouchesRepo.GetAllCouches());
+            CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
         }
     }
 }
