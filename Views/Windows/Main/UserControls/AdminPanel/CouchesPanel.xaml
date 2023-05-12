@@ -7,6 +7,8 @@
              
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:help="clr-namespace:FitnessCenter.Helpers"
+             
+             xmlns:conv="clr-namespace:FitnessCenter.Converters"
 
              xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
              
@@ -17,7 +19,11 @@
             <MenuItem Header="Добавить/Изменить фото" Command="{Binding SetServicePhoto}"/>
             <MenuItem Header="Удалить" Visibility="{Binding }" Command="{Binding}"/>
         </ContextMenu>
+
+        <conv:MissingPhotoConverter x:Key="MissingPhotoConverter"/>
     </UserControl.Resources>
+
+
 
 
     <Grid Background="#7564A3">
@@ -34,9 +40,14 @@
                 </Grid.RowDefinitions>
 
         <!--a-->
-        <Image Grid.Row="0" Width="260" Height="100" Stretch="Fill" HorizontalAlignment="Left"
-               VerticalAlignment="Center" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\Images\sleep.jpg"
-               />
+                <Image Grid.Row="0" Width="260" Height="100" Stretch="Fill" HorizontalAlignment="Left"
+               VerticalAlignment="Center" Source="{Binding SelectedCouches.Photo, Converter={StaticResource MissingPhotoConverter}, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SetPhoto}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
 
         <!--a-->
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
@@ -59,7 +70,7 @@
                 <StackPanel Panel.ZIndex="10" Grid.Row="3" Margin="5">
             <Label Content="Услуги:"/>
 
-            <Grid>
+                    <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition/>
@@ -89,8 +100,8 @@
                             <Button Style="{DynamicResource myButton}" Margin="2 0 2 0" Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
                 </Grid>
 
-                <help:MyListBox x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}"
-                                SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay,
+                        <help:MyListBox Panel.ZIndex="999" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}"
+                                SelectedItems="{Binding SelectedCouches.Services, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}"
                                 ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
 

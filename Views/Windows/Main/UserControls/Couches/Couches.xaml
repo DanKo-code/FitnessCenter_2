@@ -4,33 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Couches"
-             mc:Ignorable="d" 
+             
+             xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
+             
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:CouchesViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="0.4*"/>
-        </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Margin="30" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\Images\crusya.jpg"/>
+    <UserControl.DataContext>
+        <vm:CouchesViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid Background="#7564A3">
 
-        <ListBox Grid.Row="1" Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+        <Border Margin="40">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.7*"/>
+                </Grid.RowDefinitions>
 
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
+                <TextBlock Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.Row="0" Text="Наш персонал"/>
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                        <TextBlock Text="{Binding Title}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListView BorderThickness="1"  Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}" SelectedItem="{Binding SelectedCouches}"
+                  HorizontalContentAlignment="Center" 
+                      VerticalContentAlignment="Center">
 
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2" />
+                            <!--<StackPanel Orientation="Horizontal"/>-->
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:CouchItem Width="400" Height="200"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+        
+        
+        
     </Grid>
 </UserControl>

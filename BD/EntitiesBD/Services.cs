@@ -30,6 +30,7 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         public virtual ICollection<Couches> Couches { get; set; }
 
 
+
         public override string ToString()
         {
             return $" {Title} ";

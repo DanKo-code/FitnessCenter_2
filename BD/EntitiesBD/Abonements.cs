@@ -157,6 +157,8 @@ namespace FitnessCenter.BD.EntitiesBD
 
             Price == obj.Price &&
             Photo == obj.Photo
+
+            //Services.SequenceEqual(obj.Services)
                 ) 
             {
                 return true;

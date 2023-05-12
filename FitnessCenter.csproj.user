@@ -49,6 +49,9 @@
     <Compile Update="Views\Windows\Main\UserControls\Couches\Couches.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\CouchItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\Main\UserControls\ForMain.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\AdminPanelView\AdminPanelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\CouchesStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\ImagesDictionary\Images.xaml">
@@ -109,6 +115,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\Couches\Couches.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\CouchItem.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\ForMain.xaml">

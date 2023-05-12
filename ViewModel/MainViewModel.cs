@@ -151,6 +151,24 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        #region CouchVisibility
+        private Visibility _couchVisibility = Visibility.Collapsed;
+
+        public Visibility CouchVisibility
+        {
+            get => _couchVisibility;
+
+            set
+            {
+                if (_couchVisibility != value)
+                {
+                    _couchVisibility = value;
+                    OnPropertyChanged(nameof(CouchVisibility));
+                }
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Commands
@@ -201,9 +219,28 @@ namespace FitnessCenter.ViewModel
             ForMainVisibility = Visibility.Collapsed;
             AdminPanelVisibility = Visibility.Collapsed;
             ProfileVisibility = Visibility.Collapsed;
+            CouchVisibility = Visibility.Collapsed;
+
             HeaderText = "Абонементы";
 
             CurrentClient.abonements = context.AbonementRepo.GetAllAbonements();
+        }
+        #endregion
+
+        #region ShowCouchers
+        public ICommand ShowCouchers { get; }
+
+        private bool CanShowCouchersCommand(object p) => true;
+
+        private void OnShowCouchersCommand(object p)
+        {
+            AbonementsCoreVisibility = Visibility.Collapsed;
+            ForMainVisibility = Visibility.Collapsed;
+            AdminPanelVisibility = Visibility.Collapsed;
+            ProfileVisibility = Visibility.Collapsed;
+            CouchVisibility = Visibility.Visible;
+
+            HeaderText = "Персонал";
         }
         #endregion
 
@@ -218,6 +255,8 @@ namespace FitnessCenter.ViewModel
             ForMainVisibility = Visibility.Visible;
             AdminPanelVisibility = Visibility.Collapsed;
             ProfileVisibility = Visibility.Collapsed;
+            CouchVisibility = Visibility.Collapsed;
+
             HeaderText = "Главная";
         }
         #endregion
@@ -257,6 +296,8 @@ namespace FitnessCenter.ViewModel
         public MainViewModel(Clients client)
         {
             Client = client;
+
+            ShowCouchers = new RelayCommand(OnShowCouchersCommand, CanShowCouchersCommand);
 
             LeftImageCpmmand = new RelayCommand(OnLeftImageCommand, CanLeftImageCommand);
             RightImageCpmmand = new RelayCommand(OnRightImageCommand, CanRightImageCommand);

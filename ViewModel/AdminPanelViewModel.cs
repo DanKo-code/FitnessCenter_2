@@ -31,6 +31,7 @@ namespace FitnessCenter.ViewModel
         //Список абонементов
         public ObservableCollection<Abonements> AbonementsList { get; set; }
         public ObservableCollection<Abonements> SearchedList { get; set; }
+        public ObservableCollection<Couches> SearchedCouchesList { get; set; }
 
         //Список заказов
         private ObservableCollection<Orders> _ordersList;
@@ -539,23 +540,46 @@ namespace FitnessCenter.ViewModel
 
         private void OnAddAbonementCommand(object p)
         {
-            //Взять поля из формы
-            string title = SelectedProducts.Title;
-            int age = SelectedProducts.Age;
-            string validity = SelectedProducts.Validity;
-            string visitingTime = SelectedProducts.VisitingTime;
-            int amount = SelectedProducts.Amount;
-            int price = SelectedProducts.Price;
-            string photo = SelectedProducts.Photo;
+            if(CouchesPanelVisibility == Visibility.Visible)
+            {
+                string photo = SelectedCouches.Photo;
+                string name = SelectedCouches.Name;
+                string description = SelectedCouches.Description;
+                ObservableCollection<Services> services = SelectedCouches.Services;
 
-            //Abonements temp = new Abonements(title, age, validity, visitingTime, amount, price, photo);
-            Abonements temp = new Abonements { Id = new Guid(), Title = title, Age = age, Validity = validity, VisitingTime = visitingTime, Amount = amount, Price = price, Photo = photo };
+                Couches temp = new Couches { Id = new Guid(), Name = name, Description = description, Photo = photo, Services = services };
 
-            SelectedProducts = new Abonements();
+                SelectedCouches = new Couches();
 
-            AbonementsList.Add(temp);
-            SearchedList.Add(temp);
-            context.AbonementRepo.AddAbonement(temp);
+                CouchesList.Add(temp);
+                SearchedCouchesList.Add(temp);
+                context.CoucheRepo.AddAbonement(temp);
+
+                //SelectedCouches = new Couches
+            }
+            else if(AbonementsPanelVisibility == Visibility.Visible)
+            {
+                //Взять поля из формы
+                string title = SelectedProducts.Title;
+                int age = SelectedProducts.Age;
+                string validity = SelectedProducts.Validity;
+                string visitingTime = SelectedProducts.VisitingTime;
+                int amount = SelectedProducts.Amount;
+                int price = SelectedProducts.Price;
+                string photo = SelectedProducts.Photo;
+                ObservableCollection<Services> services = SelectedCouches.Services;
+
+                //Abonements temp = new Abonements(title, age, validity, visitingTime, amount, price, photo);
+                Abonements temp = new Abonements { Id = new Guid(), Title = title, Age = age, Validity = validity, VisitingTime = visitingTime, Amount = amount, Price = price, Photo = photo, Services = services };
+
+                SelectedProducts = new Abonements();
+
+                AbonementsList.Add(temp);
+                SearchedList.Add(temp);
+                context.AbonementRepo.AddAbonement(temp);
+            }
+
+            
 
 
         }
@@ -567,32 +591,64 @@ namespace FitnessCenter.ViewModel
 
         private bool CanDeselectCommand(object p)
         {
-            foreach (Abonements item in AbonementsList)
+            if (AbonementsPanelVisibility == Visibility.Visible)
             {
-                if (SelectedProducts.Equals(item))
+                foreach (Abonements item in AbonementsList)
                 {
-                    canAdd = false;
-                    break;
+                    if (SelectedProducts.Equals(item))
+                    {
+                        canAdd = false;
+                        break;
+                    }
+
+
                 }
+                
+            }
+            
+            if (CouchesPanelVisibility == Visibility.Visible)
+            {
+                foreach (Couches item in CouchesList)
+                {
+                    if (SelectedCouches.Equals(item))
+                    {
+                        canAdd = false;
+                        break;
+                    }
 
 
+                }
             }
 
-            return !canAdd;
+
+                return !canAdd;
         }
 
         private void OnDeselectCommand(object p)
         {
-            SelectedProducts = new Abonements();
+            if (AbonementsPanelVisibility == Visibility.Visible)
+            {
+                SelectedProducts = new Abonements();
 
-            AbonementsList.Add(SelectedProducts);
-            AbonementsList.RemoveAt(AbonementsList.Count - 1);
+                AbonementsList.Add(SelectedProducts);
+                AbonementsList.RemoveAt(AbonementsList.Count - 1);
 
-            SearchedList.Add(SelectedProducts);
-            SearchedList.RemoveAt(SearchedList.Count - 1);
+                SearchedList.Add(SelectedProducts);
+                SearchedList.RemoveAt(SearchedList.Count - 1);
+            }
 
+            if (CouchesPanelVisibility == Visibility.Visible)
+            {
+                SelectedCouches = new Couches();
 
-            canAdd = true;
+                CouchesList.Add(SelectedCouches);
+                CouchesList.RemoveAt(CouchesList.Count - 1);
+
+                SearchedCouchesList.Add(SelectedCouches);
+                SearchedCouchesList.RemoveAt(CouchesList.Count - 1);
+            }
+
+                canAdd = true;
         }
         #endregion
 
@@ -607,10 +663,22 @@ namespace FitnessCenter.ViewModel
 
         private void OnRemoveAbonementCommand(object p)
         {
-            //TODO 2
-            AbonementsList.Remove(SelectedProducts);
-            SearchedList.Remove(SelectedProducts);
-            context.AbonementRepo.RemoveAbonement(SelectedProducts);
+            if (AbonementsPanelVisibility == Visibility.Visible)
+            {
+                //TODO 2
+                AbonementsList.Remove(SelectedProducts);
+                SearchedList.Remove(SelectedProducts);
+                context.AbonementRepo.RemoveAbonement(SelectedProducts);
+            }
+
+
+            if (CouchesPanelVisibility == Visibility.Visible)
+            {
+                //TODO 2
+                CouchesList.Remove(SelectedCouches);
+                SearchedCouchesList.Remove(SelectedCouches);
+                context.CoucheRepo.RemoveCouch(SelectedCouches);
+            }
         }
         #endregion
 
@@ -680,7 +748,14 @@ namespace FitnessCenter.ViewModel
             {
                 try
                 {
-                    SelectedProducts.Photo = openFileDialog.FileName;
+                    if(AbonementsPanelVisibility == Visibility.Visible)
+                    {
+                        SelectedProducts.Photo = openFileDialog.FileName;
+                    }
+                    else if(CouchesPanelVisibility == Visibility.Visible)
+                    {
+                        SelectedCouches.Photo = openFileDialog.FileName;
+                    }
                 }
                 catch
                 {
@@ -700,7 +775,7 @@ namespace FitnessCenter.ViewModel
         }
         private void OnSaveAllChangesCommand(object p)
         {
-            context.AbonementRepo.SaveAllChanges(AbonementsList.ToList());
+            context.Save();
 
             Helpers.CurrentClient.abonements = AbonementsList.ToList();
 
@@ -769,7 +844,7 @@ namespace FitnessCenter.ViewModel
             CouchesListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
             AbonementsListVisibility = Visibility.Collapsed;
-            BottomAbonementsPanelVisibility = Visibility.Collapsed;
+            BottomAbonementsPanelVisibility = Visibility.Visible;
 
             //TODO Заполнения списка всех тренеров 2
             //CouchesList = new ObservableCollection<Couches>(context.CouchesRepo.GetAllCouches());
@@ -895,6 +970,10 @@ namespace FitnessCenter.ViewModel
 
             //TODO Заполнения списка всех тренеров
             CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
+
+            SearchedCouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
+
+            SelectedCouches = new Couches();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FitnessCenter.Helpers
 {
@@ -27,8 +28,17 @@ namespace FitnessCenter.Helpers
             smtp.Credentials = new NetworkCredential(emailFrom, pass);
             smtp.EnableSsl = true;
 
-
-            smtp.Send(mail);
+            //TODO DSVDFV
+            try
+            {
+                smtp.Send(mail);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка отправки на почту!");
+                
+            }
+            
 
             //rubasheka@gmail.com
         }

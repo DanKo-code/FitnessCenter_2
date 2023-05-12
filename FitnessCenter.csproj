@@ -13,6 +13,7 @@
     <None Remove="Resources\Images\3.jpg" />
     <None Remove="Resources\Images\4.jpg" />
     <None Remove="Resources\Images\5.jpg" />
+    <None Remove="Resources\Images\PhotoMssing.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,7 @@
     <Resource Include="Resources\Images\3.jpg" />
     <Resource Include="Resources\Images\4.jpg" />
     <Resource Include="Resources\Images\5.jpg" />
+    <Resource Include="Resources\Images\PhotoMssing.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -17,11 +17,52 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         {
             try
             {
-                return context.Couches.ToList();
+                return context.Couches.Include(x=>x.Services).ToList();
             }
             catch
             {
                 return new List<Couches>();
+            }
+        }
+
+        public bool RemoveCouch(Couches Couche)
+        {
+            try
+            {
+                context.Couches.Remove(Couche);
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool AddAbonement(Couches couch)
+        {
+            try
+            {
+                context.Couches.Add(couch);
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool SaveAllChanges()
+        {
+            try
+            {
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
