@@ -248,7 +248,6 @@ D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и dele
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AbonementsList.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AbonementsPanel.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AdminPanel.g.cs
-D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\OrdersList.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\ForMain.g.cs
@@ -269,7 +268,6 @@ D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и dele
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AbonementsList.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AbonementsPanel.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\AdminPanel.baml
-D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\OrdersList.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\ForMain.baml
@@ -294,3 +292,13 @@ D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и dele
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Resources\CouchesStyles.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchItem.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchItem.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\SelectedCouch.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\SelectedCouch.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Helpers\CloseWindow.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\SendCouchComment.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Helpers\CloseWindow.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\SendCouchComment.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchCommentsCore.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchCommentsCore.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchComment.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Couches\CouchComment.baml

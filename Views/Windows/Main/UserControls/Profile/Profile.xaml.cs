@@ -26,10 +26,6 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Profile
         public Profile()
         {
             InitializeComponent();
-
-            Profilee.DataContext = new ProfileViewModel(CurrentClient.client);
-
-            //this.DataContext = new ProfileViewModel(CurrentClient.client);
         }
     }
 }

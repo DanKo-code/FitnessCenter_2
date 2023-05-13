@@ -1,0 +1,45 @@
+﻿<Window x:Class="FitnessCenter.Views.Windows.Main.UserControls.Couches.CouchCommentsCore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Couches"
+             
+             xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#7564A3">
+        <Grid.DataContext>
+            <vm:CouchesViewModel/>
+        </Grid.DataContext>
+
+        <Border Margin="40">
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1"
+                      Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}"
+                      SelectedItem="{Binding SelectedCouches}"
+                  HorizontalContentAlignment="Center" 
+                      VerticalContentAlignment="Center">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>
+                        <!--<StackPanel Orientation="Horizontal"/>-->
+
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:CouchComment Width="400" Height="200"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ListView>
+        </Border>
+
+
+
+    </Grid>
+</Window>

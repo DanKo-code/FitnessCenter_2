@@ -11,11 +11,13 @@
              xmlns:h="clr-namespace:FitnessCenter.Helpers"
              
              
-             d:DataContext="{d:DesignInstance Type=vm:ProfileViewModel}"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid Background="White" x:Name="Profilee">
+
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

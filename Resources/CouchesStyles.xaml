@@ -9,4 +9,28 @@
         </Setter>
     </Style>-->
 
+    <Style x:Key="listViewSelect" TargetType="ListViewItem">
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="BorderBrush" Value="DimGray"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Grid x:Name="Grid">
+                        <Border x:Name="SimpleBackground" Visibility="Visible" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
+                        <Border x:Name="OnSelectedBackground" Visibility="Collapsed" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
+                        <ContentPresenter x:Name="ContentPresenter"></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="OnSelectedBackground" Property="Visibility" Value="Visible"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="OnSelectedBackground" Property="Visibility" Value="Collapsed"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

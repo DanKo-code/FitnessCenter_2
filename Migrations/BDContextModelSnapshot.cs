@@ -126,6 +126,31 @@ namespace FitnessCenter.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Comments", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ClientsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CommentBody")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CouchesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientsId");
+
+                    b.HasIndex("CouchesId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Couches", b =>
                 {
                     b.Property<Guid>("Id")
@@ -220,6 +245,25 @@ namespace FitnessCenter.Migrations
                         .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Comments", b =>
+                {
+                    b.HasOne("FitnessCenter.BD.EntitiesBD.Clients", "Clients")
+                        .WithMany()
+                        .HasForeignKey("ClientsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FitnessCenter.BD.EntitiesBD.Couches", "Couches")
+                        .WithMany()
+                        .HasForeignKey("CouchesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Clients");
+
+                    b.Navigation("Couches");
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Orders", b =>

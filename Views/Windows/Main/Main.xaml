@@ -73,21 +73,14 @@
             <uc:ForMain Grid.Column="1" Visibility="{Binding ForMainVisibility}"/>
             <uc1:AbonementsCore Grid.Column="1" Visibility="{Binding AbonementsCoreVisibility}"/>
             <uc2:AdminPanel Grid.Column="1" Visibility="{Binding AdminPanelVisibility}"/>
-            
+
             <uc3:Profile Grid.Column="1" Visibility="{Binding ProfileVisibility}"/>
             <uc4:Couches Grid.Column="1" Visibility="{Binding CouchVisibility}"/>
 
 
-
-
-            <!--<uc2:AdminPanel Grid.Column="1" Visibility="Visible"/>-->
-
-
-
-
         </Grid>
 
-
+        <!--<uc4:SelectedCouch/>-->
 
     </DockPanel>
 </Window>

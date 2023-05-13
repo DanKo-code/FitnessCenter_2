@@ -18,6 +18,17 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         private OrderRepository orderRepo;
         private ServiceRepository serviceRepo;
         private CouchesRepository coucheRepo;
+        private CommentsRepository commentsRepo;
+
+        public CommentsRepository CommentsRepo
+        {
+            get
+            {
+                if (commentsRepo == null)
+                    commentsRepo = new CommentsRepository(context);
+                return commentsRepo;
+            }
+        }
 
         public CouchesRepository CoucheRepo
         {

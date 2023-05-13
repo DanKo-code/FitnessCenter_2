@@ -13,6 +13,18 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
 
         public ClientRepository(BDContext context) => this.context = context;
 
+        public List<Clients> GetAllClients()
+        {
+            try
+            {
+                return context.Clients.Include(x => x.Orders).ToList();
+            }
+            catch
+            {
+                return new List<Clients>();
+            }
+        }
+
         public bool AddClient(Clients client)
         {
             try

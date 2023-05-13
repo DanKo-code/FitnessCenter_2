@@ -131,7 +131,7 @@
 
             <StackPanel Margin="10">
                 <Image Margin="10" Source="{Binding SelectedProducts.Photo, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Command="{Binding SetPhoto}" Margin="10" Content="Добавить фото" x:Name="SetImgButton">
+                <Button  Command="{Binding SetPhoto}" Style="{Binding ButtonStyle}" Margin="10" Content="Добавить фото" x:Name="SetImgButton">
                 </Button>
             </StackPanel>
         </Grid>

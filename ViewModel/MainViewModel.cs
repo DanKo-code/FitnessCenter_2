@@ -79,6 +79,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        ////////////////////////////////////////////////////////////////////
         #region ForMainVisibility
         private Visibility _forMainVisibility = Visibility.Visible;
 
@@ -97,6 +98,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        ////////////////////////////////////////////////////////////////////
         #region AbonementsCoreVisibility
         private Visibility _abonementsCoreVisibility = Visibility.Collapsed;
 
@@ -115,6 +117,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        ////////////////////////////////////////////////////////////////////
         #region AdminPanelVisibility
         private Visibility _adminPanelVisibility = Visibility.Collapsed;
 
@@ -133,6 +136,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        ////////////////////////////////////////////////////////////////////
         #region ProfileVisibility
         private Visibility _profileVisibility = Visibility.Collapsed;
 
@@ -151,6 +155,7 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        ////////////////////////////////////////////////////////////////////
         #region CouchVisibility
         private Visibility _couchVisibility = Visibility.Collapsed;
 
@@ -272,6 +277,9 @@ namespace FitnessCenter.ViewModel
             ForMainVisibility = Visibility.Collapsed;
             ProfileVisibility = Visibility.Collapsed;
             AdminPanelVisibility = Visibility.Visible;
+
+            CouchVisibility = Visibility.Collapsed;
+
             HeaderText = "Главная";
         }
         #endregion
@@ -287,6 +295,9 @@ namespace FitnessCenter.ViewModel
             ForMainVisibility = Visibility.Collapsed;
             AdminPanelVisibility = Visibility.Collapsed;
             ProfileVisibility = Visibility.Visible;
+
+            CouchVisibility = Visibility.Collapsed;
+
             HeaderText = "Профиль";
         }
         #endregion

@@ -24,5 +24,14 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Couches
         {
             InitializeComponent();
         }
+
+        public static readonly DependencyProperty SelectedCoachProperty = DependencyProperty.Register(
+    "SelectedCoach", typeof(FitnessCenter.BD.EntitiesBD.Couches), typeof(SelectedCouch), new PropertyMetadata(null));
+
+        public FitnessCenter.BD.EntitiesBD.Couches SelectedCoach
+        {
+            get { return (FitnessCenter.BD.EntitiesBD.Couches)GetValue(SelectedCoachProperty); }
+            set { SetValue(SelectedCoachProperty, value); }
+        }
     }
 }

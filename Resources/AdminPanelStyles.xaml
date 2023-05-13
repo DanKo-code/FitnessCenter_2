@@ -24,4 +24,25 @@
         </Style.Resources>
     </Style>
 
+    <Style x:Key="myButton_2" TargetType="Button">
+
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="Red"/>
+
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="RoundTextBlock" TargetType="TextBlock">
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+    
 </ResourceDictionary>

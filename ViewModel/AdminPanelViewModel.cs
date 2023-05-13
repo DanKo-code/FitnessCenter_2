@@ -54,6 +54,21 @@ namespace FitnessCenter.ViewModel
 
         #region Accessors (helpers for ui design)
 
+        #region ButtonStyle
+        private Style _buttonStyle;
+
+        public Style ButtonStyle
+        {
+            get => _buttonStyle;
+
+            set
+            {
+                _buttonStyle = value;
+                OnPropertyChanged(nameof(ButtonStyle));
+            }
+        }
+        #endregion
+
         #region SelectedCouches
         private Couches _selectedCouches;
 
@@ -742,6 +757,10 @@ namespace FitnessCenter.ViewModel
         }
         private void OnSetPhotoCommand(object p)
         {
+            ////Для стиля
+            //ButtonStyle = Application.Current.Resources["myButton"] as Style;
+
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image|*.jpg;*.jpeg;*.png;";
             if (openFileDialog.ShowDialog() == true)
@@ -764,6 +783,21 @@ namespace FitnessCenter.ViewModel
             }
         }
         #endregion
+
+
+
+        //#region ChangeStyle 
+        //public ICommand ChangeStyle { get; }
+
+        //private bool CanChangeStyleCommand(object p)
+        //{
+        //    return true;
+        //}
+        //private void OnChangeStyleCommand(object p)
+        //{
+            
+        //}
+        //#endregion
 
         //***********************************************
         #region SaveAllChanges

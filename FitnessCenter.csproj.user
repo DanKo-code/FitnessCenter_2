@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Helpers\CloseWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\LoginRegistration\LoginRegistration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,19 +40,28 @@
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\CouchComment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\CouchCommentsCore.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\Main\UserControls\Couches\Couches.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\UserControls\Couches\CouchItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\SelectedCouch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\Main\UserControls\Couches\SendCouchComment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\UserControls\ForMain.xaml.cs">
@@ -60,6 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Helpers\CloseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\AdminPanelStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -105,19 +120,28 @@
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Windows\Main\UserControls\AdminPanel\CustomMultiComboBox.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\CouchComment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\CouchCommentsCore.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\Main\UserControls\Couches\Couches.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\Couches\CouchItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\SelectedCouch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\Main\UserControls\Couches\SendCouchComment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\ForMain.xaml">

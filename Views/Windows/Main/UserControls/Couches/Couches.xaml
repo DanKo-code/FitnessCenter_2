@@ -10,11 +10,11 @@
              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:CouchesViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <vm:CouchesViewModel/>
-    </UserControl.DataContext>
-    
+   
     <Grid Background="#7564A3">
+        <Grid.DataContext>
+            <vm:CouchesViewModel/>
+        </Grid.DataContext>
 
         <Border Margin="40">
             <Grid>
@@ -25,17 +25,23 @@
 
                 <TextBlock Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.Row="0" Text="Наш персонал"/>
 
-                <ListView BorderThickness="1"  Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}" SelectedItem="{Binding SelectedCouches}"
-                  HorizontalContentAlignment="Center" 
-                      VerticalContentAlignment="Center">
+                <!--ItemContainerStyle="{DynamicResource listViewSelect}"-->
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1"
+                          Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}"
+                          SelectedItem="{Binding SelectedCouches}"
+                          HorizontalContentAlignment="Center" 
+                          VerticalContentAlignment="Center">
 
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="2" />
+                            <WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>
                             <!--<StackPanel Orientation="Horizontal"/>-->
+
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
+                    
+                    
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <local:CouchItem Width="400" Height="200"/>
