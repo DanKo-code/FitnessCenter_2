@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RFAr4kfbaUpn3MkYGv7PLlD/IjI8KogTsQdJN9Z0IFHGetEchmnYu2AnvKerOboYJNepzrT/X0VQjVqbfby6Zg==",
+  "dgSpecHash": "ETH+TyjhR1N8OW/VCIhUm3WtfDTIP2wyzRT4toW1SQYd1Myx8vC+6VOcej+Lv+0AsBBuFQH0xmk3w31Uef0iOw==",
   "success": true,
   "projectFilePath": "D:\\2k2s\\OOP_MY\\Курсач\\моя залупа\\Работал MyListBox и delete\\Test\\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\\FitnessCenter.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\danik\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\danik\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\danik\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\danik\\.nuget\\packages\\sharpvectors\\1.8.1\\sharpvectors.1.8.1.nupkg.sha512",
     "C:\\Users\\danik\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\danik\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\danik\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

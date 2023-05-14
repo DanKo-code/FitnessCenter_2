@@ -10,13 +10,22 @@
     <Compile Update="Helpers\CloseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\LoginRegistration\LoginRegisterCoreD.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\LoginRegistration\LoginRegistration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\LoginRegistration\UserControls\LoginControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\LoginRegistration\UserControls\LoginD.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\LoginRegistration\UserControls\RegistrationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\LoginRegistration\UserControls\RegistrationD.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Windows\Main\Main.xaml.cs">
@@ -87,6 +96,12 @@
     <Page Update="Resources\ImagesDictionary\Images.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\LoginRegistrationStylesD.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\LoginRegistration\LoginRegisterCoreD.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\LoginRegistration\LoginRegistration.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -96,7 +111,13 @@
     <Page Update="Views\Windows\LoginRegistration\UserControls\LoginControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Windows\LoginRegistration\UserControls\LoginD.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\LoginRegistration\UserControls\RegistrationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\LoginRegistration\UserControls\RegistrationD.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\Main.xaml">

@@ -1,0 +1,72 @@
+﻿<Window x:Class="FitnessCenter.Views.Windows.LoginRegistration.LoginRegisterCoreD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessCenter.Views.Windows.LoginRegistration"
+        
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+
+        
+        xmlns:uc="clr-namespace:FitnessCenter.Views.Windows.LoginRegistration.UserControls"
+        
+        mc:Ignorable="d"
+        Title="LoginRegisterCoreD" Height="450" Width="800" WindowStyle="None"
+        Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" MouseDown="Window_MouseDown">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\LoginRegistBack.png"/>
+        </Grid.Background>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image x:Name="collapsImg" Margin="5" Width="20" Height="20" PreviewMouseDown="collapsImg_PreviewMouseDown" >
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CollapsedIcon.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=collapsImg}" Value="true">
+                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CollapsedIconOn.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Image.Style>
+            </Image>
+            <Image x:Name="closeImg" Margin="5" Width="20" Height="20" PreviewMouseDown="closeImg_PreviewMouseDown" >
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\Close.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=closeImg}" Value="true">
+                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CloseOn.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Image.Style>
+            </Image>
+        </StackPanel>
+        
+        <Border Margin="200 0 200 0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.55*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                    <Image Width="90" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\Logo.png"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="24" Foreground="White" Text="FitLab"/>
+                </StackPanel>
+
+                <TextBlock TextWrapping="Wrap" FontSize="16" VerticalAlignment="Center" Foreground="#B6B6B6" Grid.Row="1" Text="Быстрее входи или регистрируйся, чтобы узрить прекрасное приложение "/>
+
+                <uc:LoginD Grid.Row="2"/>
+                <uc:RegistrationD Grid.Row="2"/>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
