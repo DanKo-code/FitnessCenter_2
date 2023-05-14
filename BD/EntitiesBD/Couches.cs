@@ -50,6 +50,20 @@ namespace FitnessCenter.BD.EntitiesBD
             }
         }
 
+        private ObservableCollection<Comments> _comments = new ObservableCollection<Comments>();
+
+        public virtual ObservableCollection<Comments> Comments
+        {
+            get => _comments;
+
+            set
+            {
+                _comments = value;
+                OnPropertyChanged("Comments");
+            }
+        }
+
+
         private ObservableCollection<Services> _services = new ObservableCollection<Services>();
         public virtual ObservableCollection<Services> Services
         {

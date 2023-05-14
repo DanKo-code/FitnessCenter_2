@@ -60,7 +60,7 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
             }
             catch
             {
-                return null;
+                return new List<Services>();
             }
         }
     }

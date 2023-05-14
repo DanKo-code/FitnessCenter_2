@@ -34,7 +34,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasIndex("ServicesId");
 
-                    b.ToTable("AbonementsServices");
+                    b.ToTable("AbonementsServices", (string)null);
                 });
 
             modelBuilder.Entity("CouchesServices", b =>
@@ -49,7 +49,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasIndex("ServicesId");
 
-                    b.ToTable("CouchesServices");
+                    b.ToTable("CouchesServices", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Abonements", b =>
@@ -85,7 +85,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Abonements");
+                    b.ToTable("Abonements", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Clients", b =>
@@ -114,6 +114,10 @@ namespace FitnessCenter.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
@@ -123,7 +127,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Clients", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Comments", b =>
@@ -148,7 +152,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasIndex("CouchesId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Couches", b =>
@@ -171,7 +175,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Couches");
+                    b.ToTable("Couches", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Orders", b =>
@@ -195,7 +199,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasIndex("ClientsId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Repositories.Services", b =>
@@ -214,7 +218,7 @@ namespace FitnessCenter.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("AbonementsServices", b =>
@@ -256,7 +260,7 @@ namespace FitnessCenter.Migrations
                         .IsRequired();
 
                     b.HasOne("FitnessCenter.BD.EntitiesBD.Couches", "Couches")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("CouchesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -289,6 +293,11 @@ namespace FitnessCenter.Migrations
             modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Clients", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("FitnessCenter.BD.EntitiesBD.Couches", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,14 +10,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#7564A3">
-        <Grid.DataContext>
-            <vm:CouchesViewModel/>
-        </Grid.DataContext>
+        
 
         <Border Margin="40">
-            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1"
-                      Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}"
-                      SelectedItem="{Binding SelectedCouches}"
+            <ListView x:Name="MyListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1"
+                      Grid.Row="1" Background="Transparent"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
 

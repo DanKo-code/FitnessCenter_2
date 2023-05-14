@@ -18,6 +18,18 @@ namespace FitnessCenter.BD.EntitiesBD
         private string _phone;
         private int _role;
         private string _password;
+        private string _photo;
+
+        public string Photo
+        {
+            get => _photo;
+
+            set
+            {
+                _photo = value;
+                OnPropertyChanged("Photo");
+            }
+        }
 
         public Guid Id
         {
@@ -125,7 +137,8 @@ namespace FitnessCenter.BD.EntitiesBD
             Login == obj.Login &&
             Email == obj.Email &&
             Phone == obj.Phone &&
-            Password == obj.Password 
+            Password == obj.Password &&
+            Photo == obj.Photo
                 )
             {
                 return true;
@@ -143,6 +156,7 @@ namespace FitnessCenter.BD.EntitiesBD
             Email = some.Email;
             Phone = some.Phone;
             Password = some.Password;
+            Photo = some.Photo;
         }
     }
 }

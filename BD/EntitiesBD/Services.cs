@@ -12,9 +12,9 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
     public class Services : ObservableObject
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
-        public string _phote;
+        public string? _phote;
         public string Phote 
         {
             get => _phote;

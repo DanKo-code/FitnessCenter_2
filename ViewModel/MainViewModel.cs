@@ -12,6 +12,7 @@ using FitnessCenter.BD.EntitiesBD;
 using FitnessCenter.Helpers;
 using FitnessCenter.BD;
 using FitnessCenter.BD.EntitiesBD.Repositories;
+using Microsoft.Win32;
 
 namespace FitnessCenter.ViewModel
 {
@@ -177,6 +178,7 @@ namespace FitnessCenter.ViewModel
         #endregion
 
         #region Commands
+
 
         #region LeftImageCpmmand
         public ICommand LeftImageCpmmand { get; }

@@ -575,13 +575,13 @@ namespace FitnessCenter.ViewModel
             else if(AbonementsPanelVisibility == Visibility.Visible)
             {
                 //Взять поля из формы
-                string title = SelectedProducts.Title;
-                int age = SelectedProducts.Age;
-                string validity = SelectedProducts.Validity;
-                string visitingTime = SelectedProducts.VisitingTime;
-                int amount = SelectedProducts.Amount;
-                int price = SelectedProducts.Price;
-                string photo = SelectedProducts.Photo;
+                string? title = SelectedProducts.Title;
+                int? age = SelectedProducts.Age;
+                string? validity = SelectedProducts.Validity;
+                string? visitingTime = SelectedProducts.VisitingTime;
+                int? amount = SelectedProducts.Amount;
+                int? price = SelectedProducts.Price;
+                string? photo = SelectedProducts.Photo;
                 ObservableCollection<Services> services = SelectedCouches.Services;
 
                 //Abonements temp = new Abonements(title, age, validity, visitingTime, amount, price, photo);
@@ -992,7 +992,13 @@ namespace FitnessCenter.ViewModel
             AbonementsList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
 
             SearchedList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
-        
+
+
+            //var tempServices = context.ServiceRepo.GetAllServices();
+
+            //if(tempServices != null)
+            //    ServicesList = new ObservableCollection<Services>(tempServices);
+
             ServicesList = new ObservableCollection<Services>(context.ServiceRepo.GetAllServices());
 
             //на начальном этапе

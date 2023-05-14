@@ -13,13 +13,13 @@ namespace FitnessCenter.BD.EntitiesBD
     public class Abonements : ObservableObject
     {
         private Guid _id;
-        private string _title;
-        private int _age;
-        private string _validity;
-        private string _visitingTime;
-        private int _amount;
-        private int _price;
-        private string _photo;
+        private string? _title;
+        private int? _age;
+        private string? _validity;
+        private string? _visitingTime;
+        private int? _amount;
+        private int? _price;
+        private string? _photo;
 
         public override string ToString()
         {
@@ -42,7 +42,7 @@ namespace FitnessCenter.BD.EntitiesBD
                 OnPropertyChanged("Id");
             }
         }
-        public string Title
+        public string? Title
         {
             get => _title;
 
@@ -52,7 +52,7 @@ namespace FitnessCenter.BD.EntitiesBD
                 OnPropertyChanged("Title");
             }
         }
-        public int Age 
+        public int? Age 
         {
             get => _age;
 
@@ -62,7 +62,7 @@ namespace FitnessCenter.BD.EntitiesBD
                 OnPropertyChanged("Age");
             }
         }
-        public string Validity 
+        public string? Validity 
         {
             get => _validity;
 
@@ -72,7 +72,7 @@ namespace FitnessCenter.BD.EntitiesBD
                 OnPropertyChanged("Validity");
             }
         }
-        public string VisitingTime 
+        public string? VisitingTime 
         {
             get => _visitingTime;
 
@@ -82,7 +82,7 @@ namespace FitnessCenter.BD.EntitiesBD
                 OnPropertyChanged("VisitingTime");
             }
         }
-        public int Amount 
+        public int? Amount 
         {
             get => _amount;
 
@@ -93,7 +93,7 @@ namespace FitnessCenter.BD.EntitiesBD
             }
         }
 
-        public string Photo 
+        public string? Photo 
         {
             get => _photo;
 
@@ -104,7 +104,7 @@ namespace FitnessCenter.BD.EntitiesBD
             }
         }
 
-        public int Price 
+        public int? Price 
         {
             get => _price;
 
@@ -116,12 +116,12 @@ namespace FitnessCenter.BD.EntitiesBD
         }
 
 
-        private ObservableCollection<Services> _services = new ObservableCollection<Services>();
-        public virtual ICollection<Orders> Orders { get; set; }
+        private ObservableCollection<Services>? _services = new ObservableCollection<Services>();
+        public virtual ICollection<Orders>? Orders { get; set; }
 
 
 
-        public virtual ObservableCollection<Services> Services 
+        public virtual ObservableCollection<Services>? Services 
         {
             get => _services;
 

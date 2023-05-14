@@ -10,11 +10,19 @@
              
              xmlns:h="clr-namespace:FitnessCenter.Helpers"
              
+             xmlns:conv="clr-namespace:FitnessCenter.Converters"
+
              
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <conv:MissingPhotoConverter x:Key="MissingPhotoConverter"/>
+    </UserControl.Resources>
+    
     <Grid Background="White" x:Name="Profilee">
 
         
@@ -36,7 +44,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Margin="10" Source="/Resources/Images/1.jpg"/>
+                <Image Grid.Column="0" Margin="10" Source="{Binding CurrentClient.Photo, Converter={StaticResource MissingPhotoConverter}, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SetPhoto}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
 
                 <StackPanel VerticalAlignment="Center" Grid.Column="1">
                     <StackPanel Margin="10">
