@@ -458,6 +458,12 @@ namespace FitnessCenter.ViewModel
 
         private void OnAddServiceCommand(object p)
         {
+            if(NewServiceName == null)
+            {
+                MessageBox.Show("Отсутствует название услуги!");
+                return;
+            }
+
             Services temp = new Services() { Id = new Guid(), Title = NewServiceName };
 
             context.ServiceRepo.AddService(temp);
@@ -582,7 +588,7 @@ namespace FitnessCenter.ViewModel
                 int? amount = SelectedProducts.Amount;
                 int? price = SelectedProducts.Price;
                 string? photo = SelectedProducts.Photo;
-                ObservableCollection<Services> services = SelectedCouches.Services;
+                ObservableCollection<Services> services = SelectedProducts.Services;
 
                 //Abonements temp = new Abonements(title, age, validity, visitingTime, amount, price, photo);
                 Abonements temp = new Abonements { Id = new Guid(), Title = title, Age = age, Validity = validity, VisitingTime = visitingTime, Amount = amount, Price = price, Photo = photo, Services = services };
