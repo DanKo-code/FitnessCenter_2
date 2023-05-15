@@ -10,9 +10,16 @@
         
         xmlns:uc="clr-namespace:FitnessCenter.Views.Windows.LoginRegistration.UserControls"
         
+        xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
+        
         mc:Ignorable="d"
         Title="LoginRegisterCoreD" Height="450" Width="800" WindowStyle="None"
         Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" MouseDown="Window_MouseDown">
+
+    <Window.DataContext>
+        <vm:LoginRegistrationViewModel x:Name ="LogRegVM"/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\LoginRegistBack.png"/>
@@ -46,7 +53,9 @@
                 </Image.Style>
             </Image>
         </StackPanel>
-        
+
+        <TextBlock Width="200" TextWrapping="Wrap" Text="{Binding ErrorText}" FontSize="16" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 100 100 0" Visibility="{Binding ErrorBoxVisibility}"/>
+
         <Border Margin="200 0 200 0">
             <Grid>
                 <Grid.RowDefinitions>
@@ -62,8 +71,8 @@
 
                 <TextBlock TextWrapping="Wrap" FontSize="16" VerticalAlignment="Center" Foreground="#B6B6B6" Grid.Row="1" Text="Быстрее входи или регистрируйся, чтобы узрить прекрасное приложение "/>
 
-                <uc:LoginD Grid.Row="2"/>
-                <uc:RegistrationD Grid.Row="2"/>
+                <uc:LoginD Grid.Row="2" Visibility="{Binding LoginVisibility}"/>
+                <uc:RegistrationD Grid.Row="2" Visibility="{Binding RegisterVisibility}"/>
 
             </Grid>
         </Border>

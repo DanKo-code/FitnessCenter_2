@@ -42,6 +42,8 @@ namespace FitnessCenter.Views.Windows.LoginRegistration.UserControls
             if(loginBox.Text.Length == 0 && textBox.Text.Length == 0)
                 passImg.Visibility = Visibility.Visible;
 
+            Helpers.CurrentClient.securePassBox = passwordBox.Password;
+
             eyeImg.Visibility = Visibility.Collapsed;
         }
 
@@ -75,16 +77,18 @@ namespace FitnessCenter.Views.Windows.LoginRegistration.UserControls
         {
             if (isPasswordShown)
             {
-                // Hide the password and show the textbox
+                // Hide the textbox and show the textbox password
                 passwordBox.Visibility = Visibility.Visible;
                 textBox.Visibility = Visibility.Collapsed;
+
+                Helpers.CurrentClient.securePassBox = textBox.Text;
                 passwordBox.Password = textBox.Text;
                 textBox.Text = "";
                 isPasswordShown = false;
             }
             else
             {
-                // Show the password and hide the textbox
+                // Show the textbox and hide the password
                 passwordBox.Visibility = Visibility.Collapsed;
                 textBox.Visibility = Visibility.Visible;
                 textBox.Text = passwordBox.Password;
@@ -92,5 +96,7 @@ namespace FitnessCenter.Views.Windows.LoginRegistration.UserControls
                 isPasswordShown = true;
             }
         }
+
+        
     }
 }
