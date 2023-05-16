@@ -13,9 +13,9 @@
                 <ResourceDictionary Source="/Resources/AdminPanelView/AdminPanelView.xaml"/>
                 <ResourceDictionary Source="/Resources/AdminPanelStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/CouchesStyles.xaml"/>
-                
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </Application.Resources>
 </Application>

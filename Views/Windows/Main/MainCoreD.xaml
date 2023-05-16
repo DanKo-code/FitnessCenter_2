@@ -1,0 +1,415 @@
+﻿<Window x:Class="FitnessCenter.Views.Windows.Main.MainCoreD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main"
+        mc:Ignorable="d"
+        
+        xmlns:Abonements="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Abonements"
+        
+        xmlns:vm="clr-namespace:FitnessCenter.ViewModel" d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+        
+        x:Name="MainWinCore"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:help="clr-namespace:FitnessCenter.Helpers" 
+        
+        xmlns:conv="clr-namespace:FitnessCenter.Converters"
+        
+        Title="MainCoreD" 
+        d:Width="1550" d:Height="1000"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        
+        BorderThickness="0"
+        
+        Background="Transparent">
+
+    <Window.Resources>
+        <conv:FontSizeConverter x:Key="FontSizeConverter"/>
+        <conv:SumConverter x:Key="SumConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Верхний грип для изменения размера окна -->
+        <ResizeGrip Visibility="Collapsed" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+        <!-- Левый грип для изменения размера окна -->
+        <ResizeGrip Visibility="Collapsed" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+
+        <!-- Центральная часть окна -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid Background="#7564A3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="#A093C5" Grid.Column="0">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="3" Opacity="0.5"/>
+                    </Border.Effect>
+
+                    <Grid Margin="10 0 10 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2.5*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock HorizontalAlignment="Right" Grid.Column="0" MaxWidth="100" MaxHeight="60" FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}"
+                           Margin="0 0 10 0" VerticalAlignment="Center" Text="FitLab" Foreground="White"/>
+                            <Image HorizontalAlignment="Left" Grid.Column="1" Margin="10 0 0 0" MaxWidth="60" MaxHeight="60" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\Logo.png"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="1" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\mainPageIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Главная" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="2" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\abonementsIcaon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Абонементы" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="3" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\coachesIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Тренера" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="4" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\aboutUsIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="О нас" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="5" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\reviewsIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Отзывы" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="6" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\adminPanelIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Панель админа" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid VerticalAlignment="Center"  Grid.Row="7" >
+
+                            <Border CornerRadius="20">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#7564A3"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid MaxWidth="200" Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\goLogRegIcon.png"/>
+
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Абонементы" Foreground="White"
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+
+
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+                    </Grid>
+                </Border>
+
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.5*"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Background="Transparent" Grid.Row="0" MouseDown="Grid_MouseDown" MouseMove="Grid_MouseMove">
+                        <Border>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Ellipse Grid.Column="0" Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.07}" MaxHeight="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.07}">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding Client.Photo}" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding SetPhoto}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Ellipse>
+
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="{Binding ElementName=MainWinCore,
+                        Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}"
+                               Grid.Column="1" Text="{Binding Client.Login}"
+                               />
+
+                                    <Image Grid.Column="2" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\settings.png"
+                           Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"
+                               MaxHeight="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"/>
+
+                                    <Image Grid.Column="3" x:Name="collapsImg" Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"
+                               Height="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}" PreviewMouseDown="collapsImg_PreviewMouseDown" >
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CollapsedIcon.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=collapsImg}" Value="true">
+                                                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CollapsedIconOn.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+
+                                        </Image.Style>
+                                    </Image>
+
+                                    <Image Grid.Column="4" x:Name="closeImg"  Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"
+                               Height="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}" PreviewMouseDown="closeImg_PreviewMouseDown" >
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\Close.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=closeImg}" Value="true">
+                                                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CloseOn.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+
+                                        </Image.Style>
+                                    </Image>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <!--Место для вставки страниц......................................................................................................-->
+                    
+
+                    <Border Margin="20" Grid.Row="1">
+                        <Abonements:AbonementsCoreD/>
+                    </Border>
+
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <!-- Правый грип для изменения размера окна -->
+        <ResizeGrip Visibility="Collapsed" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+
+        <!-- Нижний грип для изменения размера окна -->
+        <ResizeGrip Visibility="Collapsed" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+    </Grid>
+    
+    
+</Window>

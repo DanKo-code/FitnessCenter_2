@@ -381,8 +381,11 @@ namespace FitnessCenter.ViewModel
         {
             CurrentClient.client = client;
 
-            Main main = new Main(client);
-            main.Show();
+            //Main main = new Main(client);
+            //main.Show();
+
+            MainCoreD mainCoreD = new MainCoreD(client);
+            mainCoreD.Show();
 
             foreach (Window window in Application.Current.Windows)
             {

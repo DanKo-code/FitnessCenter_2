@@ -13,6 +13,7 @@ using FitnessCenter.Helpers;
 using FitnessCenter.BD;
 using FitnessCenter.BD.EntitiesBD.Repositories;
 using Microsoft.Win32;
+using FitnessCenter.Views.Windows.Main.UserControls.Couches;
 
 namespace FitnessCenter.ViewModel
 {
@@ -25,6 +26,8 @@ namespace FitnessCenter.ViewModel
         int SliderImagesIndex = 0;
 
         #region Accessors (helpers for ui design)
+
+        
 
         #region Client
         private Clients _client;
@@ -179,6 +182,36 @@ namespace FitnessCenter.ViewModel
 
         #region Commands
 
+        #region SetPhoto 
+        public ICommand SetPhoto { get; }
+
+        private bool CanSetPhotoCommand(object p)
+        {
+            return true;
+        }
+        private void OnSetPhotoCommand(object p)
+        {
+            ////Для стиля
+            //ButtonStyle = Application.Current.Resources["myButton"] as Style;
+
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image|*.jpg;*.jpeg;*.png;";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    Client.Photo = openFileDialog.FileName;
+
+                    context.ClientRepo.SaveAllChanges(Client);
+                }
+                catch
+                {
+                    MessageBox.Show("Выберите файл подходящего формата.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        #endregion
 
         #region LeftImageCpmmand
         public ICommand LeftImageCpmmand { get; }
@@ -309,6 +342,8 @@ namespace FitnessCenter.ViewModel
         public MainViewModel(Clients client)
         {
             Client = client;
+
+            SetPhoto = new RelayCommand(OnSetPhotoCommand, CanSetPhotoCommand);
 
             ShowCouchers = new RelayCommand(OnShowCouchersCommand, CanShowCouchersCommand);
 

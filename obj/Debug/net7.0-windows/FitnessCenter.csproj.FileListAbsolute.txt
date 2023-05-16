@@ -317,3 +317,7 @@ D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и dele
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\LoginRegistration\UserControls\LoginD.baml
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\LoginRegistration\UserControls\RegistrationD.g.cs
 D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\LoginRegistration\UserControls\RegistrationD.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\MainCoreD.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\MainCoreD.baml
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Abonements\AbonementsCoreD.g.cs
+D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\obj\Debug\net7.0-windows\Views\Windows\Main\UserControls\Abonements\AbonementsCoreD.baml
