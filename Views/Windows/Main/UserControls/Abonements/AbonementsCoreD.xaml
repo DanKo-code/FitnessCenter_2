@@ -9,6 +9,7 @@
              x:Name="AbonCore"
              
              xmlns:conv="clr-namespace:FitnessCenter.Converters"
+             xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
              
              d:DesignHeight="450" d:DesignWidth="800">
     
@@ -300,6 +301,11 @@
     </UserControl.Resources>
 
     <Grid>
+
+        <Grid.DataContext>
+            <vm:AbonementsViewModel/>
+        </Grid.DataContext>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
             <RowDefinition/>
@@ -328,7 +334,7 @@
             </StackPanel>
         </Grid>
 
-        <ListView Grid.Row="1" Background="Transparent" ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Grid.Row="1" Background="Transparent" ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
 
@@ -340,12 +346,15 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:AbonementItem/>
+                    <local:AbonementsItemD/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ListView>
 
-        <Button FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.02}" Width="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.6}" Height="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}" Foreground="White" Command="{Binding AddOrder}" Background="#A093C5" Grid.Row="2" Content="Оформить">
+        <Button FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.02}" Width="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.6}" Height="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.04}" Foreground="White" Command="{Binding AddOrder}" Background="#A093C5" Grid.Row="2" Content="Оформить">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
