@@ -1,10 +1,13 @@
 ﻿using FitnessCenter.BD.EntitiesBD;
 using FitnessCenter.BD.EntitiesBD.Repositories;
 using FitnessCenter.Core;
+using FitnessCenter.Views.Windows.Main.UserControls.AdminPanel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -15,7 +18,27 @@ namespace FitnessCenter.ViewModel
     {
         private UnitOfWork context;
 
+        public ObservableCollection<Services> ServicesList { get; set; }
+
         #region Accessors (helpers for ui design)
+
+        #region SearchString
+        private string _searchString;
+
+        public string SearchString
+        {
+            get => _searchString;
+
+            set
+            {
+                if (_searchString != value)
+                {
+                    _searchString = value;
+                    OnPropertyChanged(nameof(SearchString));
+                }
+            }
+        }
+        #endregion
 
         #region AbonementItems
         private List<Abonements> _abonementItems = new List<Abonements>();
@@ -28,12 +51,33 @@ namespace FitnessCenter.ViewModel
             {
                 if (value != _abonementItems)
                 {
+
+
                     _abonementItems = value;
                     OnPropertyChanged(nameof(AbonementItems));
                 }
             }
         }
         #endregion
+
+        private ObservableCollection<Abonements> _searchedList;
+
+        public ObservableCollection<Abonements> SearchedList
+        {
+            get => _searchedList;
+
+            set
+            {
+                if (value != _searchedList)
+                {
+
+
+                    _searchedList = value;
+                    OnPropertyChanged(nameof(SearchedList));
+                }
+            }
+        }
+
 
         #region CurrentClient
         private Clients _client;
@@ -71,9 +115,60 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        #region SelectedService
+        private Services _selectedService;
+
+        public Services SelectedService
+        {
+            get => _selectedService;
+
+            set
+            {
+                if (_selectedService != value)
+                {
+                    
+                    _selectedService = value;
+                    OnPropertyChanged(nameof(SelectedService));
+                }
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Commands
+
+        #region SearchAbonementByName
+        public ICommand SearchAbonements { get; }
+
+        private bool CanSearchAbonementsCommand(object p)
+        {
+            //return !canAdd;
+
+            return true;
+        }
+
+        private void OnSearchAbonementsCommand(object p)
+        {
+            if (SelectedService.Title == "Все категории")
+            {
+                SearchedList = new ObservableCollection<Abonements>(AbonementItems);
+            }
+            else
+                SearchedList = new ObservableCollection<Abonements>( AbonementItems.Where(x => x.Services.Contains(SelectedService)).ToList());
+
+
+
+            if (SearchString == "" || SearchString == null)
+                return;
+
+            SearchedList = new ObservableCollection<Abonements>(SearchedList.Where(x=>x.Title.Contains(SearchString)));
+
+            
+
+
+        }
+        #endregion
 
         #region AddOrder
         public ICommand AddOrder { get; }
@@ -109,15 +204,25 @@ namespace FitnessCenter.ViewModel
 
         public AbonementsViewModel()
         {
+
             context = new UnitOfWork();
 
+            ServicesList = new ObservableCollection<Services>(context.ServiceRepo.GetAllServices());
+            ServicesList.Add(new Services() { Title="Все категории"});
+
+
             CurrentClient = Helpers.CurrentClient.client;
+
+            SearchAbonements = new RelayCommand(OnSearchAbonementsCommand, CanSearchAbonementsCommand);
 
             AddOrder = new RelayCommand(OnAddOrderCommand, CanAddOrderCommand);
 
             ReloudAbonementsList = new RelayCommand(OnReloudAbonementsListCommand, CanReloudAbonementsListCommand);
 
             AbonementItems = Helpers.CurrentClient.abonements;
+            AbonementItems = context.AbonementRepo.GetAllAbonements();
+
+            SearchedList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
         }
 
     }

@@ -52,10 +52,10 @@
                 <TextBox Text="{Binding SelectedProducts.VisitingTime, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <StackPanel Margin="5">
+            <!--<StackPanel Margin="5">
                 <Label Content="Доступное кол-во:"/>
                 <TextBox Text="{Binding SelectedProducts.Amount, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
+            </StackPanel>-->
 
             <!--<StackPanel Margin="5">
                 <Label Content="Включено:"/>
@@ -67,7 +67,7 @@
             </StackPanel>-->
 
             <!--#region Секция для добавления сервиса-->
-            <StackPanel Margin="5">
+            <StackPanel Margin="5" Panel.ZIndex="100">
                 <Label Content="Услуги:"/>
 
                 <Grid>

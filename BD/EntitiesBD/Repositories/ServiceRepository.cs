@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,7 +57,7 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         {
             try
             {
-                return context.Services.ToList();
+                return context.Services.Include(x=>x.Couches).Include(x=>x.Abonements).ToList();
             }
             catch
             {

@@ -8,6 +8,9 @@
              
              x:Name="AbonCore"
              
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+
+             
              xmlns:conv="clr-namespace:FitnessCenter.Converters"
              xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
              
@@ -319,28 +322,67 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel HorizontalAlignment="Center" Grid.Column="0" Orientation="Horizontal">
-                <TextBlock FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.02}" Margin="0 0 10 0" VerticalAlignment="Center" Text="Услуга" Foreground="White"/>
-                <ComboBox Style="{StaticResource ComboBoxStyle1}" VerticalAlignment="Center" Width="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.25}" Height="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}"/>
+                <TextBlock FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.02}"
+                           Margin="0 0 10 0" VerticalAlignment="Center" Text="Услуга" Foreground="White"/>
+                <ComboBox SelectedItem="{Binding SelectedService}" ItemsSource="{Binding ServicesList}" Style="{StaticResource ComboBoxStyle1}" VerticalAlignment="Center" Width="{Binding ElementName=AbonCore, Path=ActualWidth,
+                    Converter={StaticResource FontSizeConverter}, ConverterParameter=0.25}" Height="{Binding ElementName=AbonCore, Path=ActualWidth,
+ Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}">
+
+                    <!--Tyt-->
+                    <!--<ComboBoxItem Content="Необработанные">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseDown">
+                                <i:InvokeCommandAction Command="{Binding ShowUndressedOrders}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>-->
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SearchAbonements}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </ComboBox>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
                 <TextBlock FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.02}" Margin="0 0 10 0" VerticalAlignment="Center" Text="Поиск" Foreground="White"/>
 
                 <Border VerticalAlignment="Center" Background="#A093C5" Height="Auto" Width="Auto" CornerRadius="10">
-                    <TextBox FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.018}" Height="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}" Width="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.25}" Foreground="White" BorderThickness="0" Background="Transparent" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.018}"
+                             Height="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}"
+                             Width="{Binding ElementName=AbonCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.25}"
+                             Foreground="White" BorderThickness="0" Background="Transparent" VerticalAlignment="Center">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding SearchAbonements}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </TextBox>
                 </Border>
-                
-                
+
+                <!--<TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"  Margin="10">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding SearchAbonementByName}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>-->
+
             </StackPanel>
         </Grid>
 
         
         
         <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Grid.Row="1" Background="Transparent"
-                  ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
+                  ItemsSource="{Binding SearchedList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProducts}"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
-
+            <!--Tyt-->
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate >
                     <WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>

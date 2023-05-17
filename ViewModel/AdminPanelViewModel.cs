@@ -975,6 +975,8 @@ namespace FitnessCenter.ViewModel
 
             BottomAbonementsPanelVisibility = Visibility.Visible;
 
+            GridSplitterVisibility= Visibility.Visible;
+
             CouchesListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
             AbonementsListVisibility = Visibility.Collapsed;
@@ -1099,18 +1101,12 @@ namespace FitnessCenter.ViewModel
 
             SearchedList = new ObservableCollection<Abonements>(context.AbonementRepo.GetAllAbonements());
 
-
-            //var tempServices = context.ServiceRepo.GetAllServices();
-
-            //if(tempServices != null)
-            //    ServicesList = new ObservableCollection<Services>(tempServices);
-
             ServicesList = new ObservableCollection<Services>(context.ServiceRepo.GetAllServices());
 
             //на начальном этапе
             SelectedProducts = new Abonements();
 
-            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x=>x.Status == 0));//*/*/****************************************************************************
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x=>x.Status == 0));
 
             RejectOrder = new RelayCommand(OnRejectOrderCommand, CanRejectOrderCommand);
 

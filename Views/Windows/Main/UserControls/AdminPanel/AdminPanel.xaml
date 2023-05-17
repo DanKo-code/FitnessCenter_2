@@ -153,11 +153,11 @@
                         <GridViewColumn Header="Срок действия">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Validity}" 
+                                    <TextBox Text="{Binding Validity}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -165,23 +165,11 @@
                         <GridViewColumn Header="Время посещения:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding VisitingTime}" 
+                                    <TextBox Text="{Binding VisitingTime}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
-                        <GridViewColumn Header="Доступное кол-во:">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Amount}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -197,17 +185,6 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <!--<i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
-                                            <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>-->
-
-                                        <!--<TextBlock  Text="{Binding Services, Converter={StaticResource ServicesListToStringConverter}, UpdateSourceTrigger=PropertyChanged}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>-->
                                         <ListBox Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                                             <ListBox.ItemsPanel>
@@ -225,17 +202,6 @@
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
                                         </ListBox>
-
-                                        <!--<help:MyListBox Grid.Row="1" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
-
-                                        <help:MyListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Title}"/>
-                                            </DataTemplate>
-                                        </help:MyListBox.ItemTemplate>
-
-
-                                    </help:MyListBox>-->
                                     </Grid>
 
 
@@ -247,11 +213,11 @@
                         <GridViewColumn Header="Стоимость:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Price}" 
+                                    <TextBox Text="{Binding Price}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -333,18 +299,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Доступное кол-во:">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Abonement.Amount}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
+    
                         <GridViewColumn Header="Услуги:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -412,11 +367,11 @@
                         <GridViewColumn Header="Имя">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" 
+                                    <TextBox Text="{Binding Name}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -424,11 +379,11 @@
                         <GridViewColumn Header="Описание:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Description}" 
+                                    <TextBox Text="{Binding Description}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
+                                           Margin="10,0,0,0"></TextBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

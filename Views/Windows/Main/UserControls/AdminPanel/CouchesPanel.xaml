@@ -57,6 +57,7 @@
             </StackPanel> 
         </StackPanel>
 
+                        <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
                         <Label Grid.Row="0" Content="Описанике"/>
