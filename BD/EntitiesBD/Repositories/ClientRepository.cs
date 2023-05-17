@@ -60,7 +60,7 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
         {
             try
             {
-                Clients temp = context.Clients.FirstOrDefault(x => x.Login == clientLogin);
+                Clients temp = context.Clients.Include(x=>x.Orders).FirstOrDefault(x => x.Login == clientLogin);
 
                 if (temp.Password == clientPassword) 
                     return temp;

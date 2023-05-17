@@ -10,12 +10,17 @@
              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:CouchesViewModel}"
              d:DesignHeight="200" d:DesignWidth="400">
     <Grid Background="#A093C5">
-        <Border BorderThickness="0" BorderBrush="Black"  Margin="50">
+
+        
+
+        <Border BorderThickness="0" BorderBrush="Black" Margin="50">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0.6*"/>
                 </Grid.ColumnDefinitions>
+
+                
 
                 <Border Grid.Row="0" CornerRadius="20">
                     <Border.Background>
@@ -40,10 +45,12 @@
                             BorderBrush="White" Background="Transparent" Foreground="White"
                             Content="Смотреть подробнее" Click="Button_Click">
                     </Button>
-                </Grid >
+                </Grid>
                 
 
             </Grid>
         </Border>
+
+        
     </Grid>
 </UserControl>

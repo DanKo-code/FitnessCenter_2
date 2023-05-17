@@ -24,5 +24,7 @@ namespace FitnessCenter.Views.Windows.Main.UserControls
         {
             InitializeComponent();
         }
+
+        
     }
 }

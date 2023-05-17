@@ -5,6 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
              
+             xmlns:abonements="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Abonements"
+             
+             x:Name="profileCore"
+             
              xmlns:v="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
              xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
              
@@ -17,18 +21,19 @@
 
              
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="1550">
 
     <UserControl.Resources>
         <conv:MissingPhotoConverter x:Key="MissingPhotoConverter"/>
+        <conv:FontSizeConverter x:Key="FontSizeConverter"/>
     </UserControl.Resources>
     
-    <Grid Background="White" x:Name="Profilee">
+    <Grid Background="Transparent" x:Name="Profilee">
 
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.6*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -52,72 +57,163 @@
                     </i:Interaction.Triggers>
                 </Image>
 
-                <StackPanel VerticalAlignment="Center" Grid.Column="1">
-                    <StackPanel Margin="10">
-                        <Label Content="Имя"/>
-                        <TextBox Text="{Binding CurrentClient.Name, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
+                <Grid MaxHeight="200" VerticalAlignment="Center" Grid.Column="1">
 
-                    <StackPanel Margin="10">
-                        <Label Content="Фамилия"/>
-                        <TextBox Text="{Binding CurrentClient.SurName, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid x:Name="firstDiv" Grid.Row="0" Margin="10">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Height="30" Grid.Row="0"
+                            
+                                Content="Имя"/>
+                        <!--<TextBox Text="{Binding CurrentClient.Name, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+                        <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                            <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="10">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Grid.Row="0" Content="Фамилия"/>
+
+                        <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                            <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.SurName, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Border>
+                        
+                    </Grid>
+                </Grid>
 
             </Grid>
 
-            <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                <StackPanel Margin="10">
-                    <Label Content="Логин"/>
-                    <TextBox Text="{Binding CurrentClient.Login, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
+            <Grid VerticalAlignment="Center" Grid.Row="1">
 
-                <StackPanel Margin="10">
-                    <Label Content="Пароль"/>
-                    <TextBox Text="{Binding CurrentClient.Password, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0" MaxWidth="900" Margin="10">
 
-                <StackPanel Margin="10">
-                    <Label Content="Почта"/>
-                    <TextBox Text="{Binding CurrentClient.Email, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="0" Content="Логин"/>
+                    <!--<TextBox Text="{Binding CurrentClient.Login, UpdateSourceTrigger=PropertyChanged}"/>-->
 
-                <StackPanel Margin="10">
-                    <Label Content="Телефон"/>
-                    <TextBox Text="{Binding CurrentClient.Phone, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
-            </StackPanel>
+                    <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                        <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.Login, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                </Grid>
 
-            <Button Command="{Binding SaveAllChanges}" Grid.Row="2" Content="сохранить" Height="20" Width="300" Margin="10"/>
+                <Grid Grid.Row="1" Margin="10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="0" Content="Пароль"/>
+                    <!--<TextBox Text="{Binding CurrentClient.Password, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+                    <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                        <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.Password, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="0" Content="Почта"/>
+                    <!--<TextBox Text="{Binding CurrentClient.Email, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+                    <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                        <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.Email, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="0" Content="Телефон"/>
+                    <!--<TextBox Text="{Binding CurrentClient.Phone, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+                    <Border Grid.Row="1" Background="White" Height="Auto" Width="Auto" CornerRadius="10">
+                        <TextBox BorderThickness="0" Background="Transparent" Text="{Binding CurrentClient.Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <!--<Button Command="{Binding SaveAllChanges}" Grid.Row="2" Content="сохранить" Height="20" Width="300" Margin="10"/>-->
+
+            <Button Command="{Binding SaveAllChanges}" FontSize="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.02}" Width="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.4}" Height="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.04}" Foreground="White" Background="#A093C5" Grid.Row="2" Content="Оформить">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
 
         <!--Коллекция абонементов-->
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"/>
+                <!--<RowDefinition Height="0.1*"/>-->
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Command="{Binding ReloadOrdersHisory}" Content="R" Grid.Row="0" Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0"/>
- 
-            <ListView Grid.Row="1" Background="Transparent" ItemsSource="{Binding AbonementItems}"
+            <!--<Button Command="{Binding ReloadOrdersHisory}" Content="R" Grid.Row="0" Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0"/>-->
+
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0"
+                      Grid.Row="1" Background="Transparent"
+                      ItemsSource="{Binding Abonements, UpdateSourceTrigger=PropertyChanged}"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate >
-                        <UniformGrid Columns="1" />
-                        <!--<StackPanel Orientation="Horizontal"/>-->
+                        <WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <v:OrderItem/>
+                        <abonements:AbonementsItemD MaxWidth="500" MaxHeight="500"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ListView>
+            
+            
+            
         </Grid>
 
         

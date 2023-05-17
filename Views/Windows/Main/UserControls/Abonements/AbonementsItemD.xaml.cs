@@ -24,5 +24,10 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Abonements
         {
             InitializeComponent();
         }
+
+        private void ListView_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }

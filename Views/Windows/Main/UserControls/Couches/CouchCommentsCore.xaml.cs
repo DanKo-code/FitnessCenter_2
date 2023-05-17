@@ -50,5 +50,23 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Couches
 
             MyListView.ItemsSource = tempFullComments;
         }
+
+        private void closeImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is CouchCommentsCore)
+                {
+                    window.Close();
+                    break;
+                }
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }

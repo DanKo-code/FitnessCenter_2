@@ -51,5 +51,23 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Couches
 
 
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void closeImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is SendCouchComment)
+                {
+                    window.Close();
+                    break;
+                }
+            }
+        }
     }
 }

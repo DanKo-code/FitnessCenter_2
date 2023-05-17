@@ -5,19 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls"
              
+             xmlns:conv="clr-namespace:FitnessCenter.Converters"
+             x:Name="Slider"
+             
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
  
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="FontSizeConverter"/>
+        <conv:SumConverter x:Key="SumConverter"/>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
-            Фитнес клуб с бассейном
-            всего за 8 000 руб в месяц
-            Оплати в один клик
+        <TextBlock TextWrapping="Wrap" FontSize="{Binding ElementName=Slider, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Foreground="White" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            Добро пожаловать в прекрасное приложение в для Фитнес-центра, в нем вы можете приобрести абонементы, просмотреть тренеров и оставить к ним отзыв, редактировать свой профиль и посмотреть историю покупок
         </TextBlock>
 
         <DockPanel Margin="70 10 70 20" LastChildFill="False" Grid.Row="1">
@@ -26,8 +33,44 @@
                 <ImageBrush ImageSource="{Binding SliderImage}" Stretch="UniformToFill"/>
             </DockPanel.Background>
 
-            <Button Command="{Binding LeftImageCpmmand}" Margin="80 0 0 0" DockPanel.Dock="Left" Width="30" Height="30"/>
-            <Button Command="{Binding RightImageCpmmand}" Margin="0 0 80 0" DockPanel.Dock="Right" Width="30" Height="30"/>
+            <Image x:Name="leftImg" Width="{Binding ElementName=Slider, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.09}"
+                   MaxHeight="{Binding ElementName=Slider, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.09}">
+                <Image.Style>
+                    <Style  TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\Arrow.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=leftImg}" Value="true">
+                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\arrowOn.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseDown">
+                        <i:InvokeCommandAction Command="{Binding LeftImageCpmmand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Image>
+
+            <Image x:Name="rightImg" DockPanel.Dock="Right" Width="{Binding ElementName=Slider, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.09}"
+                   Height="{Binding ElementName=Slider, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.09}">
+                <Image.Style>
+                    <Style  TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\ArrowRight.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=rightImg}" Value="true">
+                                <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\ArrowRightOn.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseDown">
+                        <i:InvokeCommandAction Command="{Binding RightImageCpmmand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Image>
             
         </DockPanel>
         

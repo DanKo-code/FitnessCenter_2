@@ -26,7 +26,7 @@
 
 
 
-    <Grid Background="#7564A3">
+    <Grid Background="Transparent">
 
         <Border Margin="20">
 

@@ -61,9 +61,6 @@
     <Compile Update="Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Windows\Main\UserControls\Couches\CouchComment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -160,9 +157,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\Main\UserControls\Couches\CouchComment.xaml">

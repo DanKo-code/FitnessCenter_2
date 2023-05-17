@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows;
 using FitnessCenter.Views.Windows.Main.UserControls.Abonements;
 using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace FitnessCenter.ViewModel
 {
@@ -36,6 +37,8 @@ namespace FitnessCenter.ViewModel
             }
         }
         #endregion
+
+        public ObservableCollection<BD.EntitiesBD.Abonements> Abonements { get; set; }
 
         #region AbonementItems
         private List<Orders> _abonementItems;
@@ -115,17 +118,27 @@ namespace FitnessCenter.ViewModel
         #endregion
         public ProfileViewModel(Clients client)
         {
+            Abonements = new ObservableCollection<Abonements>();
+
             SetPhoto = new RelayCommand(OnSetPhotoCommand, CanSetPhotoCommand);
 
             context = new UnitOfWork();
 
             CurrentClient = client;
-
+                
             SaveAllChanges = new RelayCommand(OnSaveAllChangesCommand, CanSaveAllChangesCommand);
 
             ReloadOrdersHisory = new RelayCommand(OnReloadOrdersHisoryCommand, CanReloadOrdersHisoryCommand);
 
-            AbonementItems = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == CurrentClient.Id).ToList();
+            //AbonementItems = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == CurrentClient.Id).ToList();
+
+            foreach (BD.EntitiesBD.Orders item in context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == client.Id).ToList())
+            {
+                Abonements.Add(item.Abonement);
+            }
+
+            //AbonementItems = context.OrderRepo.GetAllOrder().FirstOrDefault(x=>x.Id == client.Id).Abonement;
+            
         }
     }
 }

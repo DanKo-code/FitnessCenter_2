@@ -27,7 +27,8 @@
             </Grid.RowDefinitions>
 
             <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}"
-                       Grid.Row="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Title}"/>
+                       Grid.Row="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       Text="{Binding Title}"/>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -46,32 +47,36 @@
                     <StackPanel Grid.Row="0" MaxWidth="200" Margin="8" Orientation="Horizontal">
                         
 
-                        <Image Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\AbonementItemImages\Age.png"/>
+                        <Image Grid.Column="0" 
+                               Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\AbonementItemImages\Age.png"/>
 
-                        <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Возраст:" Foreground="White"
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Height="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.04}" Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Возраст:" Foreground="White"
                            />
 
-                        <TextBlock  Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2" Text="{Binding Age}" />
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
+                                   Text="{Binding Age}" />
 
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" MaxWidth="200" Margin="8" Orientation="Horizontal">
                         <Image Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\AbonementItemImages\Validity.png"/>
 
-                        <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Срок действия:" Foreground="White"
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Срок действия:" Foreground="White"
                            />
 
-                        <TextBlock  Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2" Text="{Binding Validity}" />
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
+                                   Text="{Binding Validity}" />
 
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" MaxWidth="200" Margin="8" Orientation="Horizontal">
                         <Image Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\AbonementItemImages\VisitingTime.png"/>
 
-                        <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Время посещения:" Foreground="White"
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="Время посещения:" Foreground="White"
                            />
 
-                        <TextBlock Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2" Text="{Binding VisitingTime}" />
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
+                                   Text="{Binding VisitingTime}" />
 
                     </StackPanel>
 
@@ -79,10 +84,11 @@
                         
                         <Image Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\AbonementItemImages\Price.png"/>
 
-                        <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Text="Стоимость:" Foreground="White"
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" VerticalAlignment="Center" Text="Стоимость:" Foreground="White"
                            />
 
-                        <TextBlock Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="{Binding Price}" />
+                        <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
+                                   Text="{Binding Price}" />
                     </StackPanel>
                 </Grid>
 
@@ -95,33 +101,36 @@
             </Grid>
 
             <StackPanel Grid.Row="2">
-                <TextBlock Foreground="White" Text="Услуги:"/>
-                <ListView BorderThickness="0" Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Foreground="White" Text="Услуги:"/>
 
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <!--<WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>-->
-                            <StackPanel Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
+                <ListView  ScrollViewer.CanContentScroll="False" BorderThickness="0" Background="Transparent" 
+                           ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <!--<StackPanel Margin="10">
-                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                                <TextBlock Foreground="White" Text="{Binding Title}"/>
-                            </StackPanel>-->
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <!--<WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>-->
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
 
-                            <!--<Grid>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="10">
+                                    <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                    <TextBlock Foreground="White" Text="{Binding Title}"/>
+                                </StackPanel>
+
+                                <!--<Grid>
                                 <Grid.RowDefinitions>
                                     
                                 </Grid.RowDefinitions>
                             </Grid>-->
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                
             </StackPanel>
-            
+            <Label Grid.Row="2"/>
         </Grid>
     </Border>
   

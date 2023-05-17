@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessCenter.Views.Windows.LoginRegistration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,26 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Couches
 
             CouchCommentsCore couchComment = new CouchCommentsCore(selectedCouch);
             couchComment.Show();
+        }
+
+        private void closeImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is SelectedCouch)
+                {
+                    window.Close();
+                    break;
+                }
+            }
+
+
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
     }
 }

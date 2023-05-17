@@ -59,5 +59,10 @@ namespace FitnessCenter.Views.Windows.Main
                 DragMove();
             }
         }
+
+        private void ForMain_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

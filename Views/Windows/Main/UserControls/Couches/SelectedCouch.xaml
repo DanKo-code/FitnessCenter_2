@@ -5,16 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Couches"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border CornerRadius="20" Background="#A093C5">
-        <Border Margin="20">
+             Height="400" Width="500"
+             WindowStyle="None"
+                
+             MouseDown="Window_MouseDown"
+        ResizeMode="NoResize"
+AllowsTransparency="True"
+Background="Transparent"
+             BorderThickness="0">
+
+
+
+    <Border BorderThickness="0" Background="#A093C5" CornerRadius="20" >
+        <Grid  Margin="20">
 
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.1*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-   
+
                 <Grid Grid.Row="1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -28,11 +38,15 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Foreground="White" FontSize="30" Text="{Binding Name}"  VerticalAlignment="Center"/>
+                        <!--<TextBlock Grid.Row="0" Foreground="White" FontSize="30" Text="{Binding Name}"  VerticalAlignment="Center"/>-->
+                        <TextBlock Grid.Row="0" Foreground="White" FontSize="20" Text="Имя тренера" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                        <TextBlock Grid.Row="1" Foreground="White" TextWrapping="Wrap" FontSize="30" Text="{Binding Description}"/>
+                        <!--<TextBlock Grid.Row="1" Foreground="White" TextWrapping="Wrap" FontSize="30" Text="{Binding Description}"/>-->
+                        <TextBlock Grid.Row="1" Foreground="White" TextWrapping="Wrap" FontSize="16" Text="Текст про трненера, его заслуги, там стаж бла бла бла бла бла ававававава"/>
 
-                        <ListBox Grid.Row="2" Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                        <!--<ListBox Grid.Row="2" Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">-->
+                      
+                        <!--<ListBox Grid.Row="2" Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -48,7 +62,38 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
-                        </ListBox>
+                        </ListBox>-->
+
+                        <StackPanel Margin="0 5 0 0" Grid.Row="2">
+                            <TextBlock Foreground="White" Text="Услуги:"/>
+
+                            <ListView  ScrollViewer.CanContentScroll="False" BorderThickness="0" Background="Transparent" 
+                           ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <!--<WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>-->
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="10">
+                                            <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                            <TextBlock Foreground="White" Text="{Binding Title}"/>
+                                        </StackPanel>
+
+                                        <!--<Grid>
+                                <Grid.RowDefinitions>
+                                    
+                                </Grid.RowDefinitions>
+                            </Grid>-->
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackPanel>
 
                     </Grid>
 
@@ -58,15 +103,15 @@
                             <RowDefinition Height="0.2*"/>
                         </Grid.RowDefinitions>
 
-                        <Border Grid.Row="0" CornerRadius="20" Width="300" Height="300">
+                        <Border Grid.Row="0" CornerRadius="20" Width="200" Height="200">
                             <Border.Background>
                                 <ImageBrush Stretch="UniformToFill"
                          ImageSource="{Binding Photo}"/>
                             </Border.Background>
                         </Border>
 
-                        <Border Width="200" Height="50" Background="#7564A3" Grid.Row="1" CornerRadius="20">
-                            <Button  Foreground="White" Content="Просмотреть отзывы" Background="Transparent" Click="Button_Click" />
+                        <Border BorderThickness="0" Width="200" Height="30" Background="#7564A3" Grid.Row="1" CornerRadius="20">
+                            <Button BorderThickness="0" Foreground="White" Content="Просмотреть отзывы" Background="Transparent" Click="Button_Click" />
                         </Border>
 
 
@@ -74,9 +119,26 @@
 
                 </Grid>
 
+
             </Grid>
-            
-            
-        </Border>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image x:Name="closeImg" Margin="5" Width="20" Height="20" PreviewMouseDown="closeImg_PreviewMouseDown" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\Close.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=closeImg}" Value="true">
+                                    <Setter Property="Source" Value="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\LoginRegistrationImages\CloseOn.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </Image.Style>
+                </Image>
+            </StackPanel>
+        </Grid>
+
+
     </Border>
 </Window>

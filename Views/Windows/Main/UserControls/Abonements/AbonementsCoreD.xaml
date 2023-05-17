@@ -334,7 +334,10 @@
             </StackPanel>
         </Grid>
 
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Grid.Row="1" Background="Transparent" ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
+        
+        
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Grid.Row="1" Background="Transparent"
+                  ItemsSource="{Binding AbonementItems}" SelectedItem="{Binding SelectedProducts}"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
 
@@ -346,7 +349,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:AbonementsItemD/>
+                    <local:AbonementsItemD Margin="10"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ListView>

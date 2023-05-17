@@ -14,6 +14,7 @@ using FitnessCenter.BD;
 using FitnessCenter.BD.EntitiesBD.Repositories;
 using Microsoft.Win32;
 using FitnessCenter.Views.Windows.Main.UserControls.Couches;
+using FitnessCenter.Views.Windows.LoginRegistration;
 
 namespace FitnessCenter.ViewModel
 {
@@ -301,6 +302,27 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        #region GoLoginRegistration
+        public ICommand GoLoginRegistration { get; }
+
+        private bool CanGoLoginRegistrationCommand(object p) => true;
+
+        private void OnGoLoginRegistrationCommand(object p)
+        {
+            LoginRegisterCoreD loginRegisterCoreD = new LoginRegisterCoreD();
+            loginRegisterCoreD.Show();
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is MainCoreD)
+                {
+                    window.Close();
+                    break;
+                }
+            }
+        }
+        #endregion
+
         #region ShowAdminPanel
         public ICommand ShowAdminPanel { get; }
 
@@ -342,6 +364,8 @@ namespace FitnessCenter.ViewModel
         public MainViewModel(Clients client)
         {
             Client = client;
+
+            GoLoginRegistration = new RelayCommand(OnGoLoginRegistrationCommand, CanGoLoginRegistrationCommand);
 
             SetPhoto = new RelayCommand(OnSetPhotoCommand, CanSetPhotoCommand);
 

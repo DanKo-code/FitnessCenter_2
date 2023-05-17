@@ -26,7 +26,7 @@
                 <TextBlock Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.Row="0" Text="Наш персонал"/>
 
                 <!--ItemContainerStyle="{DynamicResource listViewSelect}"-->
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1"
+                <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0"
                           Grid.Row="1" Background="Transparent" ItemsSource="{Binding CouchesList}"
                           SelectedItem="{Binding SelectedCouches}"
                           HorizontalContentAlignment="Center" 

@@ -46,5 +46,7 @@ namespace FitnessCenter.Views.Windows.Main.UserControls.Couches
             SendCouchComment couchComment = new SendCouchComment(selectedCouch);
             couchComment.Show();
         }
+
+
     }
 }

@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         
         xmlns:Abonements="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Abonements"
+        xmlns:Slider="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls"
+        xmlns:Profile="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
+        xmlns:Couches="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Couches"
+        xmlns:AdminPanel="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.AdminPanel"
+
         
         xmlns:vm="clr-namespace:FitnessCenter.ViewModel" d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         
@@ -87,6 +92,12 @@
 
                         <Grid Grid.Row="1" >
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowForMain}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -119,6 +130,12 @@
 
                         <Grid Grid.Row="2" >
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowAbonementsCore}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -151,6 +168,12 @@
 
                         <Grid Grid.Row="3" >
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowCouchers}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -181,7 +204,7 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="4" >
+                        <Grid Visibility="Collapsed" Grid.Row="4" >
 
                             <Border CornerRadius="20">
                                 <Border.Style>
@@ -213,8 +236,14 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="5" >
+                        <Grid Visibility="Visible" Grid.Row="4" >
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowProfile}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -233,9 +262,9 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\reviewsIcon.png"/>
+                                    <Image Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\Profile.png" VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0"/>
 
-                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Отзывы" Foreground="White"
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Профиль" Foreground="White"
                            FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
 
 
@@ -245,8 +274,14 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="6" >
+                        <Grid Grid.Row="5">
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowAdminPanel}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -268,7 +303,7 @@
                                     <Image VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="40" MaxWidth="40" Grid.Column="0" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\adminPanelIcon.png"/>
 
                                     <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" MaxWidth="200" MaxHeight="40" Grid.Column="1" Text="Панель админа" Foreground="White"
-                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}"/>
+                           FontSize="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.013}"/>
 
 
 
@@ -279,6 +314,12 @@
 
                         <Grid VerticalAlignment="Center"  Grid.Row="7" >
 
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding GoLoginRegistration}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <Border CornerRadius="20">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -395,7 +436,15 @@
                     
 
                     <Border Margin="20" Grid.Row="1">
-                        <Abonements:AbonementsCoreD/>
+                        <Grid>
+                            <Abonements:AbonementsCoreD Visibility="{Binding AbonementsCoreVisibility}"/>
+                            <Slider:ForMain Visibility="{Binding ForMainVisibility}"/>
+                            <Profile:Profile Visibility="{Binding ProfileVisibility}"/>
+                            <Couches:Couches Visibility="{Binding CouchVisibility}"/>
+                            <AdminPanel:AdminPanel Visibility="{Binding AdminPanelVisibility}"/>
+                        </Grid>
+                        
+
                     </Border>
 
 

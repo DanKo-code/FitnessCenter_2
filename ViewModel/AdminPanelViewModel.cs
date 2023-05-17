@@ -69,6 +69,24 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        #region OrdersPanelComboBoxVisibility
+        private Visibility _ordersPanelComboBoxVisibility = Visibility.Collapsed;
+
+        public Visibility OrdersPanelComboBoxVisibility
+        {
+            get => _ordersPanelComboBoxVisibility;
+
+            set
+            {
+                if (_ordersPanelComboBoxVisibility != value)
+                {
+                    _ordersPanelComboBoxVisibility = value;
+                    OnPropertyChanged(nameof(OrdersPanelComboBoxVisibility));
+                }
+            }
+        }
+        #endregion
+
         #region SelectedCouches
         private Couches _selectedCouches;
 
@@ -87,6 +105,24 @@ namespace FitnessCenter.ViewModel
                     {
                         MyEvent(this, EventArgs.Empty);
                     }
+                }
+            }
+        }
+        #endregion
+
+        #region GridSplitterVisibility
+        private Visibility _gridSplitterVisibility = Visibility.Visible;
+
+        public Visibility GridSplitterVisibility
+        {
+            get => _gridSplitterVisibility;
+
+            set
+            {
+                if (_gridSplitterVisibility != value)
+                {
+                    _gridSplitterVisibility = value;
+                    OnPropertyChanged(nameof(GridSplitterVisibility));
                 }
             }
         }
@@ -511,7 +547,7 @@ namespace FitnessCenter.ViewModel
             context.Save();
 
             OrdersList.Remove(SelectedOrders);
-
+                
             //********************************Отправка на почту**************************************************************
 
             MessageBox.Show("Начало отправки!");
@@ -730,6 +766,53 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
+        //Фильтрация заказов
+
+        //Одобреные
+        #region ShowApproveOrders
+        public ICommand ShowApproveOrders { get; }
+
+        private bool CanShowApproveOrdersCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnShowApproveOrdersCommand(object p)
+        {
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x => x.Status == 1));
+        }
+        #endregion
+
+        //Отклоненные
+        #region ShowRejectOrders
+        public ICommand ShowRejectOrders { get; }
+
+        private bool CanShowRejectOrdersCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnShowRejectOrdersCommand(object p)
+        {
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x => x.Status == 2));
+        }
+        #endregion
+
+        //Необработанные
+        #region ShowUndressedOrders
+        public ICommand ShowUndressedOrders { get; }
+
+        private bool CanShowUndressedOrdersCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnShowUndressedOrdersCommand(object p)
+        {
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x => x.Status == 0));
+        }
+        #endregion
+
         //***********************************************
         #region SortAbonementByName
         public ICommand SortAbonementByName { get; }
@@ -837,6 +920,9 @@ namespace FitnessCenter.ViewModel
             OrdersPanelVisibility = Visibility.Collapsed;
             CouchesPanelVisibility = Visibility.Collapsed;
 
+            OrdersPanelComboBoxVisibility = Visibility.Collapsed;
+            GridSplitterVisibility = Visibility.Visible;
+
             CouchesListVisibility = Visibility.Collapsed;
             AbonementsListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
@@ -854,17 +940,21 @@ namespace FitnessCenter.ViewModel
         }
         private void OnShowOrdersPanelCommand(object p)
         {
-            OrdersPanelVisibility = Visibility.Visible;
+            OrdersPanelVisibility = Visibility.Collapsed;
             AbonementsPanelVisibility = Visibility.Collapsed;
             CouchesPanelVisibility = Visibility.Collapsed;
+            GridSplitterVisibility = Visibility.Collapsed;
 
 
             CouchesListVisibility = Visibility.Collapsed;
             OrdersListVisibility = Visibility.Visible;
+
+            OrdersPanelComboBoxVisibility = Visibility.Visible;
+
             AbonementsListVisibility = Visibility.Collapsed;
             BottomAbonementsPanelVisibility = Visibility.Collapsed;
 
-            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder());
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x=>x.Status == 0));
         }
         #endregion
 
@@ -880,6 +970,10 @@ namespace FitnessCenter.ViewModel
             OrdersPanelVisibility = Visibility.Collapsed;
             AbonementsPanelVisibility = Visibility.Collapsed;
             CouchesPanelVisibility = Visibility.Visible;
+
+            OrdersPanelComboBoxVisibility = Visibility.Collapsed;
+
+            BottomAbonementsPanelVisibility = Visibility.Visible;
 
             CouchesListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
@@ -960,6 +1054,12 @@ namespace FitnessCenter.ViewModel
 
         public AdminPanelViewModel()
         {
+            ShowUndressedOrders = new RelayCommand(OnShowUndressedOrdersCommand, CanShowUndressedOrdersCommand);
+
+            ShowRejectOrders = new RelayCommand(OnShowRejectOrdersCommand, CanShowRejectOrdersCommand);
+
+            ShowApproveOrders = new RelayCommand(OnShowApproveOrdersCommand, CanShowApproveOrdersCommand);
+
             ShowCouchesPanel = new RelayCommand(OnShowCouchesPanelCommand, CanShowCouchesPanelCommand);
 
             SetServicePhoto = new RelayCommand(OnSetServicePhotoCommand, CanSetServicePhotoCommand);
@@ -1010,7 +1110,7 @@ namespace FitnessCenter.ViewModel
             //на начальном этапе
             SelectedProducts = new Abonements();
 
-            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder());
+            OrdersList = new ObservableCollection<Orders>(context.OrderRepo.GetAllOrder().Where(x=>x.Status == 0));//*/*/****************************************************************************
 
             RejectOrder = new RelayCommand(OnRejectOrderCommand, CanRejectOrderCommand);
 
