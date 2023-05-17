@@ -7,7 +7,7 @@
              
              x:Name="AbonItem"
              
-             xmlns:m="clr-namespace:FitnessCenter.BD.EntitiesBD" d:DataContext="{d:DesignInstance Type=m:Abonements}"
+             xmlns:m="clr-namespace:FitnessCenter.BD.EntitiesBD" d:DataContext="{d:DesignInstance Type=m:Orders}"
              xmlns:conv="clr-namespace:FitnessCenter.Converters"
              
              mc:Ignorable="d" 
@@ -16,6 +16,8 @@
     <UserControl.Resources>
         <conv:FontSizeConverter x:Key="FontSizeConverter"/>
         <conv:SumConverter x:Key="SumConverter"/>
+
+        <conv:OrderStatusConverter x:Key="OrderStatusConverter"/>
     </UserControl.Resources>
 
     <Border Background="#A093C5">
@@ -131,6 +133,8 @@
                 
             </StackPanel>
             <Label Grid.Row="2"/>
+
+            
         </Grid>
     </Border>
   

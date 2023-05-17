@@ -20,6 +20,23 @@ namespace FitnessCenter.ViewModel
 
         #region Accessors (helpers for ui design)
 
+        #region ClientOrder
+        private List<Orders> _clientOrders;
+        public List<Orders> ClientOrders
+        {
+            get => _clientOrders;
+
+            set
+            {
+                if (_clientOrders != value)
+                {
+                    _clientOrders = value;
+                    OnPropertyChanged(nameof(ClientOrders));
+                }
+            }
+        }
+        #endregion
+
         #region CurrentClient
         private Clients _client;
 
@@ -136,6 +153,8 @@ namespace FitnessCenter.ViewModel
             {
                 Abonements.Add(item.Abonement);
             }
+
+            ClientOrders = context.OrderRepo.GetAllOrder();
 
             //AbonementItems = context.OrderRepo.GetAllOrder().FirstOrDefault(x=>x.Id == client.Id).Abonement;
             

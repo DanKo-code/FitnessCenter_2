@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
              
              xmlns:abonements="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Abonements"
+             xmlns:orders="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
              
              x:Name="profileCore"
+             
              
              xmlns:v="clr-namespace:FitnessCenter.Views.Windows.Main.UserControls.Profile"
              xmlns:vm="clr-namespace:FitnessCenter.ViewModel"
@@ -20,14 +22,16 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
 
              
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  d:DataContext="{d:DesignInstance Type=vm:ProfileViewModel}"
              d:DesignHeight="1000" d:DesignWidth="1550">
 
     <UserControl.Resources>
         <conv:MissingPhotoConverter x:Key="MissingPhotoConverter"/>
         <conv:FontSizeConverter x:Key="FontSizeConverter"/>
+
+        <conv:OrderStatusConverter x:Key="OrderStatusConverter"/>
     </UserControl.Resources>
-    
+
     <Grid Background="Transparent" x:Name="Profilee">
 
         
@@ -195,7 +199,7 @@
 
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0"
                       Grid.Row="1" Background="Transparent"
-                      ItemsSource="{Binding Abonements, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding ClientOrders}"
                   HorizontalContentAlignment="Center" 
                       VerticalContentAlignment="Center">
 
@@ -207,7 +211,21 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <abonements:AbonementsItemD MaxWidth="500" MaxHeight="500"/>
+
+                        <Grid>
+
+                            <orders:OrdersItemD MaxWidth="500" MaxHeight="500"/>
+
+
+                            <Border Grid.Column="0" Grid.RowSpan="3" Width="400" Height="100" Background="Transparent">
+                                <TextBlock HorizontalAlignment="Center" Foreground="Gold" FontSize="40" 
+                           Text="{Binding Status, Converter={StaticResource OrderStatusConverter}, UpdateSourceTrigger=PropertyChanged}"
+                           Padding="10" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        
+                        
+                         
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ListView>
