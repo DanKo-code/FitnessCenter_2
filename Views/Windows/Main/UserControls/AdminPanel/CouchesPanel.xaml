@@ -30,16 +30,9 @@
 
         <Border Margin="20">
 
-            <Grid>
+            <StackPanel>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-        <!--a-->
+                
                 <Image Grid.Row="0" Width="260" Height="100" Stretch="Fill" HorizontalAlignment="Left"
                VerticalAlignment="Center" Source="{Binding SelectedCouches.Photo, Converter={StaticResource MissingPhotoConverter}, UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Triggers>
@@ -49,15 +42,71 @@
                     </i:Interaction.Triggers>
                 </Image>
 
-        <!--a-->
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                <!--#region Секция для добавления сервиса-->
+                <StackPanel Panel.ZIndex="10" Grid.Row="1" Margin="5">
+                    <Label Content="Услуги:"/>
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.2*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="0.3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox  Text="{Binding NewServiceName}" Style="{DynamicResource mytextbox}" Grid.Column="0" Grid.Row="0">
+                                <TextBox.ContextMenu>
+                                    <ContextMenu Visibility="Collapsed"/>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+
+                            <Button Style="{DynamicResource myButton}" Margin="2 0 2 0" Command="{Binding AddService}" Content="Добавить" Grid.Column="1"/>
+                            <Button Style="{DynamicResource myButton}" Margin="2 0 2 0" Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
+                        </Grid>
+
+                        <help:MyListBox Panel.ZIndex="999" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}"
+                                SelectedItems="{Binding SelectedCouches.Services, Mode=TwoWay,
+                                UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}"
+                                ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
+
+                            <help:MyListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}"/>
+                                </DataTemplate>
+                            </help:MyListBox.ItemTemplate>
+
+
+                        </help:MyListBox>
+
+
+
+                    </Grid>
+                </StackPanel>
+
+
+
+                <!--#endregion-->
+                
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
                 <Label Content="Имя"/>
                         <TextBox Width="300" Style="{DynamicResource mytextbox}"  Text="{Binding SelectedCouches.Name, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel> 
         </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
                         <Label Grid.Row="0" Content="Описанике"/>
                         <TextBox Height="60" Width="600" Grid.Row="1" Text="{Binding SelectedCouches.Description, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource mytextbox}"/>
@@ -66,67 +115,12 @@
 
         
 
-        <!--#region Секция для добавления сервиса-->
-                <StackPanel Panel.ZIndex="10" Grid.Row="3" Margin="5">
-            <Label Content="Услуги:"/>
-
-                    <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.2*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Grid>
-
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
-                            <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="0.3*"/>
-                        <ColumnDefinition Width="0.3*"/>
-                    </Grid.ColumnDefinitions>
-
-                            <TextBox  Text="{Binding NewServiceName}" Style="{DynamicResource mytextbox}" Grid.Column="0" Grid.Row="0">
-                        <TextBox.ContextMenu>
-                            <ContextMenu Visibility="Collapsed"/>
-                        </TextBox.ContextMenu>
-                    </TextBox>
-
-                    <Button Style="{DynamicResource myButton}" Margin="2 0 2 0" Command="{Binding AddService}" Content="Добавить" Grid.Column="1"/>
-                            <Button Style="{DynamicResource myButton}" Margin="2 0 2 0" Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
-                </Grid>
-
-                        <help:MyListBox Panel.ZIndex="999" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}"
-                                SelectedItems="{Binding SelectedCouches.Services, Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}"
-                                ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
-
-                    <help:MyListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Title}"/>
-                        </DataTemplate>
-                    </help:MyListBox.ItemTemplate>
-
-
-                </help:MyListBox>
-
-
-
-            </Grid>
-        </StackPanel>
-
-
-
-        <!--#endregion-->
+        
 
 
 
 
-            </Grid>
+            </StackPanel>
 
          
                 

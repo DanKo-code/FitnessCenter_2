@@ -42,146 +42,372 @@
 
     <Grid x:Name="AdminContext" DataContext="{Binding Source={StaticResource ViewModell}}">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition/>
-                <RowDefinition Height="0.3*"/>
-            </Grid.RowDefinitions>
+        <StackPanel Margin="10" Orientation="Horizontal" Grid.Row="0">
+            <Button Command="{Binding ShowAbonementsPanel}" Content="Абонементы" Margin="10" Width="100" Height="30"/>
+            <Button Command="{Binding ShowOrdersPanel}" Content="Заказы" Margin="10" Width="100" Height="30"/>
+            <Button Command="{Binding ShowCouchesPanel}" Content="Тренера" Margin="10" Width="100" Height="30"/>
+            <!--<Button Content="Пользователи" Margin="10" Width="100" Height="30"/>-->
 
-            <StackPanel Margin="10" Orientation="Horizontal" Grid.Row="0">
-                <Button Command="{Binding ShowAbonementsPanel}" Content="Абонементы" Margin="10" Width="100" Height="30"/>
-                <Button Command="{Binding ShowOrdersPanel}" Content="Заказы" Margin="10" Width="100" Height="30"/>
-                <Button Command="{Binding ShowCouchesPanel}" Content="Тренера" Margin="10" Width="100" Height="30"/>
-                <!--<Button Content="Пользователи" Margin="10" Width="100" Height="30"/>-->
+            <ComboBox Visibility="{Binding OrdersPanelComboBoxVisibility}" Margin="10" Width="100" Height="30">
+                <ComboBoxItem Content="Необработанные">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <i:InvokeCommandAction Command="{Binding ShowUndressedOrders}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBoxItem>
+                <ComboBoxItem Content="Одобреные">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <i:InvokeCommandAction Command="{Binding ShowApproveOrders}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBoxItem>
+                <ComboBoxItem Content="Отказаные">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <i:InvokeCommandAction Command="{Binding ShowRejectOrders}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBoxItem>
+            </ComboBox>
+            
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.3*"/>
+                </Grid.RowDefinitions>
+
                 
 
-            </StackPanel>
+                <uc:AbonementsPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding AbonementsPanelVisibility}" Loaded="AbonementsPanel_Loaded"/>
+                <uc:CouchesPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding CouchesPanelVisibility}"/>
 
-            <uc:AbonementsPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding AbonementsPanelVisibility}" Loaded="AbonementsPanel_Loaded"/>
-            <uc:OrdersPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding OrdersPanelVisibility}"/>
-            <uc:CouchesPanel DataContext="{Binding Source={StaticResource ViewModell}}" Grid.Row="1" Visibility="{Binding CouchesPanelVisibility}"/>
+                <Grid Grid.Row="2" Visibility="{Binding BottomAbonementsPanelVisibility}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="2" Visibility="{Binding BottomAbonementsPanelVisibility}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel VerticalAlignment="Center"  Grid.Column="0" >
-                    <Button Command="{Binding Deselect}" Content="Снять выбор" Margin="10"/>
-                    <Button Command="{Binding AddAbonement}" Content="Добавить" Margin="10"/>
-                    <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"  Margin="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="TextChanged">
-                                <i:InvokeCommandAction Command="{Binding SearchAbonementByName}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </TextBox>
-                </StackPanel>
-
-                <StackPanel VerticalAlignment="Center"  Grid.Column="2">
-                    <Button Command="{Binding RemoveAbonement}" Content="Удалить" Margin="10"/>
-                    <ComboBox Text="Фильтр" Margin="10">
-                        <ComboBoxItem Content="Название">
+                    <StackPanel VerticalAlignment="Center"  Grid.Column="0" >
+                        <Button Command="{Binding Deselect}" Content="Снять выбор" Margin="10"/>
+                        <Button Command="{Binding AddAbonement}" Content="Добавить" Margin="10"/>
+                        <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"  Margin="10">
                             <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="PreviewMouseDown">
-                                    <i:InvokeCommandAction Command="{Binding SortAbonementByName}" />
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding SearchAbonementByName}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                        </ComboBoxItem>
-                        <ComboBoxItem Content="Возраст"/>
-                        <ComboBoxItem Content="Срок действий"/>
-                        <ComboBoxItem Content="Время посещений"/>
-                        <ComboBoxItem Content="Доступное кол-во"/>
-                    </ComboBox>
-                    <Button Command="{Binding SaveAllChanges}" Content="Сохранить все изменения" Margin="10"/>
-                </StackPanel>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Center"  Grid.Column="2">
+                        <Button Command="{Binding RemoveAbonement}" Content="Удалить" Margin="10"/>
+                        <ComboBox Text="Фильтр" Margin="10">
+                            <ComboBoxItem Content="Название">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <i:InvokeCommandAction Command="{Binding SortAbonementByName}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBoxItem>
+                            <ComboBoxItem Content="Возраст"/>
+                            <ComboBoxItem Content="Срок действий"/>
+                            <ComboBoxItem Content="Время посещений"/>
+                            <ComboBoxItem Content="Доступное кол-во"/>
+                        </ComboBox>
+                        <Button Command="{Binding SaveAllChanges}" Content="Сохранить все изменения" Margin="10"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
-        </Grid>
 
-        <GridSplitter Width="5" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+            <GridSplitter Visibility="{Binding GridSplitterVisibility}" Width="5" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
-        <ListView SelectedItem="{Binding SelectedProducts}" ItemsSource="{Binding SearchedList}" Background="Transparent" Grid.Column="2" Visibility="{Binding AbonementsListVisibility}" ContextMenu="{StaticResource ForAbonements}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Название">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" 
+            <ListView SelectedItem="{Binding SelectedProducts}" ItemsSource="{Binding SearchedList}" Background="Transparent" Grid.Column="2" Visibility="{Binding AbonementsListVisibility}" ContextMenu="{StaticResource ForAbonements}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Название">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
                                            Margin="10,0,0,0"></TextBox>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Срок действия">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Validity}" 
+                        <GridViewColumn Header="Срок действия">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Validity}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Время посещения:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding VisitingTime}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Услуги:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <Grid>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <ListBox Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                                        <TextBlock Text="{Binding Title}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Grid>
+
+
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Стоимость:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Price}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Фото:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Photo}" 
+                                           Width="50"
+                                           Height="50"
+                                           Margin="10,0,0,0">
+                                        
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <ListView Grid.ColumnSpan="3" Background="Transparent" ContextMenu="{StaticResource ForOrders}" SelectedItem="{Binding SelectedOrders}" ItemsSource="{Binding OrdersList}" Visibility="{Binding OrdersListVisibility}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Имя клиента">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Client.Name}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
                                            Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Время посещения:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding VisitingTime}" 
+                        <GridViewColumn Header="Фамилия клиента">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Client.SurName}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
                                            Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Доступное кол-во:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Amount}" 
+                        <GridViewColumn Header="Название">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Abonement.Title}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
                                            Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Услуги:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-
-                                <Grid>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-
-                                    <!--<i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseRightButtonDown">
-                                            <i:InvokeCommandAction Command="{Binding ChangeServicesListVisibility}" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>-->
-
-                                    <!--<TextBlock  Text="{Binding Services, Converter={StaticResource ServicesListToStringConverter}, UpdateSourceTrigger=PropertyChanged}" 
+                        <GridViewColumn Header="Срок действия">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Abonement.Validity}" 
                                            TextWrapping="Wrap" 
                                            FontSize="16"
                                            Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>-->
-                                    <ListBox Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                                           Margin="10,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Время посещения:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Abonement.VisitingTime}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Доступное кол-во:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Abonement.Amount}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Услуги:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ListBox ItemsSource="{Binding Abonement.Services, UpdateSourceTrigger=PropertyChanged}">
+
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                                    <TextBlock Text="{Binding Title}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Стоимость:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Abonement.Price}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Фото:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Abonement.Photo}" 
+                                           Width="50"
+                                           Height="50"
+                                           Margin="10,0,0,0"></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <ListView  SelectedItem="{Binding SelectedCouches}" ItemsSource="{Binding CouchesList}" Background="Transparent"  Grid.Column="2" Visibility="{Binding CouchesListVisibility}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Фото:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Photo}" 
+                                           Width="50"
+                                           Height="50"
+                                           Margin="10,0,0,0"></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Имя">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Name}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Описание:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Description}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Услуги:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ListBox ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -199,241 +425,15 @@
                                         </ListBox.ItemTemplate>
                                     </ListBox>
 
-                                    <!--<help:MyListBox Grid.Row="1" x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
-
-                                        <help:MyListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Title}"/>
-                                            </DataTemplate>
-                                        </help:MyListBox.ItemTemplate>
-
-
-                                    </help:MyListBox>-->
-                                </Grid>
-                                
-                                
-
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Стоимость:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Price}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Фото:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Photo}" 
-                                           Width="50"
-                                           Height="50"
-                                           Margin="10,0,0,0"></Image>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <ListView Background="Transparent" ContextMenu="{StaticResource ForOrders}" SelectedItem="{Binding SelectedOrders}" ItemsSource="{Binding OrdersList}"  Grid.Column="2" Visibility="{Binding OrdersListVisibility}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Имя клиента">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Client.Name}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Фамилия клиента">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Client.SurName}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Название">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Abonement.Title}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Срок действия">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Abonement.Validity}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Время посещения:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Abonement.VisitingTime}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Доступное кол-во:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Abonement.Amount}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Услуги:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <ListBox ItemsSource="{Binding Abonement.Services, UpdateSourceTrigger=PropertyChanged}">
-
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal" />
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                                        <TextBlock Text="{Binding Title}"/>
-                                    </StackPanel>
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-                    <GridViewColumn Header="Стоимость:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Abonement.Price}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Фото:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Abonement.Photo}" 
-                                           Width="50"
-                                           Height="50"
-                                           Margin="10,0,0,0"></Image>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <ListView  SelectedItem="{Binding SelectedCouches}" ItemsSource="{Binding CouchesList}" Background="Transparent"  Grid.Column="2" Visibility="{Binding CouchesListVisibility}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Фото:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Photo}" 
-                                           Width="50"
-                                           Height="50"
-                                           Margin="10,0,0,0"></Image>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Имя">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Описание:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Description}" 
-                                           TextWrapping="Wrap" 
-                                           FontSize="16"
-                                           Foreground="#99aab5" 
-                                           Margin="10,0,0,0"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <GridViewColumn Header="Услуги:">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <ListBox ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
-
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                                                <TextBlock Text="{Binding Title}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
+        </Grid>
+        
 
     </Grid>
 

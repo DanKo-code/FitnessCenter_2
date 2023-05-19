@@ -52,10 +52,7 @@
                 <TextBox Text="{Binding SelectedProducts.VisitingTime, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <StackPanel Margin="5">
-                <Label Content="Доступное кол-во:"/>
-                <TextBox Text="{Binding SelectedProducts.Amount, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
+            
 
             <!--<StackPanel Margin="5">
                 <Label Content="Включено:"/>
