@@ -150,12 +150,19 @@ namespace FitnessCenter.ViewModel
 
         private void OnSearchAbonementsCommand(object p)
         {
-            if (SelectedService.Title == "Все категории")
-            {
+            if(SelectedService == null)
                 SearchedList = new ObservableCollection<Abonements>(AbonementItems);
+            else 
+            {
+                if (SelectedService.Title == "Все категории")
+                {
+                    SearchedList = new ObservableCollection<Abonements>(AbonementItems);
+                }
+                else
+                    SearchedList = new ObservableCollection<Abonements>(AbonementItems.Where(x => x.Services.Contains(SelectedService)).ToList());
+
             }
-            else
-                SearchedList = new ObservableCollection<Abonements>( AbonementItems.Where(x => x.Services.Contains(SelectedService)).ToList());
+
 
 
 
@@ -197,6 +204,7 @@ namespace FitnessCenter.ViewModel
         {
             //AbonementItems = Helpers.CurrentClient.abonements;
             AbonementItems = context.AbonementRepo.GetAllAbonements().ToList();
+            SearchedList = new ObservableCollection<Abonements>( context.AbonementRepo.GetAllAbonements().ToList());
         }
         #endregion
 

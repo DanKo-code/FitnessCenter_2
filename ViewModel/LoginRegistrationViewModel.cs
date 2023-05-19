@@ -466,7 +466,7 @@ namespace FitnessCenter.ViewModel
         {
 
 
-            if (!Regex.IsMatch(NewClient.Login, "^[a-zA-Z0-9_-]{3,16}$"))
+            if (!Regex.IsMatch(NewClient.Login, "^[a-zA-ZА-Яа-я0-9_-]{3,16}$"))
             {
                 ErrorLogin = Brushes.Red;
                 return;
@@ -502,8 +502,6 @@ namespace FitnessCenter.ViewModel
 
         private void OnCheckNameCommand(object p)
         {
-
-
             if (!Regex.IsMatch(NewClient.Name, "^[A-Za-zА-Яа-я]+$"))
             {
                 ErrorName = Brushes.Red;

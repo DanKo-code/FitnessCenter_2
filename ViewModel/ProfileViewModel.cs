@@ -101,9 +101,11 @@ namespace FitnessCenter.ViewModel
         }
         private void OnReloadOrdersHisoryCommand(object p)
         {
-            AbonementItems = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == CurrentClient.Id).ToList();
+            ClientOrders = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == CurrentClient.Id).ToList();
         }
         #endregion
+
+       
 
         #region SetPhoto 
         public ICommand SetPhoto { get; }
@@ -154,10 +156,10 @@ namespace FitnessCenter.ViewModel
                 Abonements.Add(item.Abonement);
             }
 
-            ClientOrders = context.OrderRepo.GetAllOrder();
+            ClientOrders = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == client.Id).ToList();
 
             //AbonementItems = context.OrderRepo.GetAllOrder().FirstOrDefault(x=>x.Id == client.Id).Abonement;
-            
+
         }
     }
 }

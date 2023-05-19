@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,6 +25,9 @@ namespace FitnessCenter.ViewModel
     {
         //EF
         private UnitOfWork context;
+
+        //для валидации
+        bool valid = false;
 
         //Ебанутая система
         bool canAdd = true;
@@ -53,6 +57,75 @@ namespace FitnessCenter.ViewModel
         }
 
         #region Accessors (helpers for ui design)
+
+
+
+
+        //Валидация полей для абонемента
+        #region AbonementTitleBorder
+        private Brush _abonementTitleBorder;
+
+        public Brush AbonementTitleBorder
+        {
+            get => _abonementTitleBorder;
+
+            set
+            {
+                _abonementTitleBorder = value;
+                OnPropertyChanged(nameof(AbonementTitleBorder));
+            }
+        }
+
+        #endregion
+
+        #region AbonementAgeBorder
+        private Brush _abonementAgeBorder;
+
+        public Brush AbonementAgeBorder
+        {
+            get => _abonementAgeBorder;
+
+            set
+            {
+                _abonementAgeBorder = value;
+                OnPropertyChanged(nameof(AbonementAgeBorder));
+            }
+        }
+
+        #endregion
+
+        #region AbonementValidityBorder
+        private Brush _abonementValidityBorder;
+
+        public Brush AbonementValidityBorder
+        {
+            get => _abonementValidityBorder;
+
+            set
+            {
+                _abonementValidityBorder = value;
+                OnPropertyChanged(nameof(AbonementValidityBorder));
+            }
+        }
+
+        #endregion
+
+        #region AbonementPriceBorder
+        private Brush _abonementPriceBorder;
+
+        public Brush AbonementPriceBorder
+        {
+            get => _abonementPriceBorder;
+
+            set
+            {
+                _abonementPriceBorder = value;
+                OnPropertyChanged(nameof(AbonementPriceBorder));
+            }
+        }
+
+        #endregion
+        //Валидация полей для абонемента
 
         #region ButtonStyle
         private Style _buttonStyle;
@@ -458,6 +531,99 @@ namespace FitnessCenter.ViewModel
 
         #region Commands
 
+        #region CheckTitleCommand
+        public ICommand CheckTitleCommand { get; }
+
+        private bool CanCheckTitleCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnCheckTitleCommand(object p)
+        {
+            if (SelectedProducts.Title == null || !Regex.IsMatch(SelectedProducts.Title, "^[A-Za-zА-Яа-я]+$"))
+            {
+                AbonementTitleBorder = Brushes.Red;
+                valid = false;
+                return;
+            }
+
+            valid = true;
+            AbonementTitleBorder = Brushes.White;
+        }
+        #endregion
+
+        #region CheckAgeCommand
+        public ICommand CheckAgeCommand { get; }
+
+        private bool CanCheckAgeCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnCheckAgeCommand(object p)
+        {
+            
+
+            if (!Regex.IsMatch(SelectedProducts.Age.ToString(), @"^[0-9]{1,2}$"))
+            {
+                AbonementAgeBorder = Brushes.Red;
+                valid = false;
+                return;
+            }
+
+            valid = true;
+            AbonementAgeBorder = Brushes.White;
+        }
+        #endregion
+
+        #region CheckValidityCommand
+        public ICommand CheckValidityCommand { get; }
+
+        private bool CanCheckValidityCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnCheckValidityCommand(object p)
+        {
+
+
+            if (SelectedProducts.Validity == null || !Regex.IsMatch(SelectedProducts.Validity, @"^[0-9]{1,2}$"))
+            {
+                AbonementValidityBorder = Brushes.Red;
+                valid = false;
+                return;
+            }
+
+            valid = true;
+            AbonementValidityBorder = Brushes.White;
+        }
+        #endregion
+
+        #region CheckPriceCommand
+        public ICommand CheckPriceCommand { get; }
+
+        private bool CanCheckPriceCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnCheckPriceCommand(object p)
+        {
+
+
+            if (!Regex.IsMatch(SelectedProducts.Price.ToString(), @"^[0-9]*$"))
+            {
+                AbonementPriceBorder = Brushes.Red;
+                valid = false;
+                return;
+            }
+
+            valid = true;
+            AbonementPriceBorder = Brushes.White;
+        }
+        #endregion
 
 
         #region ChangeServicesListVisibility 
@@ -592,10 +758,13 @@ namespace FitnessCenter.ViewModel
 
         private bool CanAddAbonementCommand(object p)
         {
-            return canAdd;
+            return canAdd && (AbonementTitleBorder == Brushes.White
+                && AbonementAgeBorder == Brushes.White
+                && AbonementValidityBorder == Brushes.White
+                && AbonementPriceBorder == Brushes.White);
         }
 
-        private void OnAddAbonementCommand(object p)
+        private void OnAddAbonementCommand(object p) /////////////////////////////////////////////////////////////////////////////////////////////////
         {
             if(CouchesPanelVisibility == Visibility.Visible)
             {
@@ -1056,6 +1225,14 @@ namespace FitnessCenter.ViewModel
 
         public AdminPanelViewModel()
         {
+            CheckPriceCommand = new RelayCommand(OnCheckPriceCommand, CanCheckPriceCommand);
+
+            CheckValidityCommand = new RelayCommand(OnCheckValidityCommand, CanCheckValidityCommand);
+
+            CheckAgeCommand = new RelayCommand(OnCheckAgeCommand, CanCheckAgeCommand);
+
+            CheckTitleCommand = new RelayCommand(OnCheckTitleCommand, CanCheckTitleCommand);
+
             ShowUndressedOrders = new RelayCommand(OnShowUndressedOrdersCommand, CanShowUndressedOrdersCommand);
 
             ShowRejectOrders = new RelayCommand(OnShowRejectOrdersCommand, CanShowRejectOrdersCommand);

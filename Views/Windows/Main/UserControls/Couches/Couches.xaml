@@ -23,7 +23,21 @@
                     <RowDefinition Height="0.7*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.Row="0" Text="Наш персонал"/>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Foreground="white" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.Column="0" Text="Наш персонал"/>
+
+                    <Button Command="{Binding ReloudAbonementsList}" BorderThickness="0" Grid.Column="1" Width="40" Height="40" Margin="10">
+                        <Button.Background>
+                            <ImageBrush ImageSource="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\Reboot.png"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+                
 
                 <!--ItemContainerStyle="{DynamicResource listViewSelect}"-->
                 <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0"

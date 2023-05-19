@@ -34,17 +34,35 @@
         <StackPanel Grid.Column="0">
             <StackPanel Margin="5">
                 <Label Content="Название:"/>
-                <TextBox Text="{Binding SelectedProducts.Title, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox BorderBrush="{Binding AbonementTitleBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Title, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding CheckTitleCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Margin="5">
                 <Label Content="Возраст:"/>
-                <TextBox Text="{Binding SelectedProducts.Age, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox BorderBrush="{Binding AbonementAgeBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Age, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding CheckAgeCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Margin="5">
-                <Label Content="Срок действия:"/>
-                <TextBox Text="{Binding SelectedProducts.Validity, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Срок действия (месяцев):"/>
+                <TextBox BorderBrush="{Binding AbonementValidityBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Validity, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding CheckValidityCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Margin="5">
@@ -122,7 +140,13 @@
 
             <StackPanel Margin="5">
                 <Label Content="Стоимость:"/>
-                <TextBox Text="{Binding SelectedProducts.Price, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox BorderBrush="{Binding AbonementPriceBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Price, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding CheckPriceCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
             </StackPanel>
         </StackPanel>
 

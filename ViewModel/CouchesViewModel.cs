@@ -45,6 +45,20 @@ namespace FitnessCenter.ViewModel
 
         #region Commands
 
+        #region ReloudAbonementsList
+        public ICommand ReloudAbonementsList { get; }
+
+        private bool CanReloudAbonementsListCommand(object p)
+        {
+            return true;
+        }
+
+        private void OnReloudAbonementsListCommand(object p)
+        {
+            CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
+        }
+        #endregion
+
         //#region ShowMoreInfWind
         //public ICommand ShowMoreInfWind { get; }
 
@@ -63,7 +77,7 @@ namespace FitnessCenter.ViewModel
 
         public CouchesViewModel()
         {
-            //ShowMoreInfWind = new RelayCommand(OnShowMoreInfWindCommand, CanShowMoreInfWindCommand);
+            ReloudAbonementsList = new RelayCommand(OnReloudAbonementsListCommand, CanReloudAbonementsListCommand);
 
             context = new UnitOfWork();
 

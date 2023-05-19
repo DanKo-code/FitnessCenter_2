@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FitnessCenter.BD.Repositories.EntitiesBD.AbonementRepository" Collapsed="true">
+    <Position X="27.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAAAAAAAAAAAAAAAAgAACQAAAAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\AbonementRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.ClientRepository" Collapsed="true">
+    <Position X="39.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAEAAAAAAAAAAAAAAAAAgAAAAACAIAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\ClientRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.CommentsRepository" Collapsed="true">
+    <Position X="29" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\CommentsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.CouchesRepository" Collapsed="true">
+    <Position X="37.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACEAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\CouchesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.OrderRepository" Collapsed="true">
+    <Position X="36" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\OrderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.ServiceRepository" Collapsed="true">
+    <Position X="25.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\ServiceRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.UnitOfWork" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAIAEACEAAAAIAiAAAAAgAAIAAAACAgAAAQAAAAg=</HashCode>
+      <FileName>BD\EntitiesBD\Repositories\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Repositories.Services" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAABBAEAEAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>BD\EntitiesBD\Services.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Abonements" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggECAAQgAYBAAOAUIEBAAACAAAAAAAgAAABgQAAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Abonements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Clients" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUCIAAgACBAACAAEABEAAQAAAAAAgACAAARIAAEABE=</HashCode>
+      <FileName>BD\EntitiesBD\Clients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Comments" Collapsed="true">
+    <Position X="27.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAABAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BD\EntitiesBD\Comments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Couches" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACIAAgEABgACAUAAAAAAQAAAAAAAAAAAAAQAAAIAA=</HashCode>
+      <FileName>BD\EntitiesBD\Couches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.EntitiesBD.Orders" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAEIAAAAAAEAAhAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>BD\EntitiesBD\Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.BD.BDContext" Collapsed="true">
+    <Position X="34.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAQAAAQABAAEAACAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>BD\BDContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Converters.FontSizeConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\FontSizeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Converters.MissingPhotoConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\MissingPhotoConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Converters.OrderStatusConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\OrderStatusConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Converters.ServicesListToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ServicesListToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Converters.SumConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\SumConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Core.ObservableObject" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\ObservableObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FitnessCenter.Core.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Helpers.AdminDataContext" Collapsed="true">
+    <Position X="29" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Helpers\AdminDataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Helpers.CloseWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\CloseWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FitnessCenter.Helpers.CurrentClient" Collapsed="true">
+    <Position X="25.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAIQQAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Helpers\CurrentClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Helpers.MyListBox" Collapsed="true">
+    <Position X="32.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAABAAAAABACAAAAAAAAAACAIA=</HashCode>
+      <FileName>Helpers\MyListBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Helpers.SMTP" Collapsed="true">
+    <Position X="29" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\SMTP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.InitialDataBase" Collapsed="true">
+    <Position X="34.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230428104322_InitialDataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.changeClientssurnametostring" Collapsed="true">
+    <Position X="37.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230429161230_change Clients surname to string.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addOrderscontructor" Collapsed="true">
+    <Position X="37.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230430144129_add Orders contructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addForeignKeytoOrders" Collapsed="true">
+    <Position X="36" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230430150430_add ForeignKey to Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.upgradeorders" Collapsed="true">
+    <Position X="39.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230430160246_upgrade orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.renameclientsandabonements" Collapsed="true">
+    <Position X="36" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230430163401_rename clients and abonements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addstatustoorders" Collapsed="true">
+    <Position X="27.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230505001659_add status to orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.tryaddserviscestable" Collapsed="true">
+    <Position X="36" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230507103030_try add servisces table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.deletedirtidcolumninServices" Collapsed="true">
+    <Position X="27.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230508194826_delete dirt id column in Services.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.deleteICollectionAbonementscolumninServices" Collapsed="true">
+    <Position X="29" Y="4.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230508195528_delete ICollection Abonements column in Services.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.testservices" Collapsed="true">
+    <Position X="34.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230508201522_test services.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addcolumnphototoServices2" Collapsed="true">
+    <Position X="39.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230509191522_add column photo to Services 2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addCouchestablemanytomanyCouchesServices" Collapsed="true">
+    <Position X="34.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230510054605_add Couches table - many to many CouchesServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addPhotoCouchestable" Collapsed="true">
+    <Position X="39.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230510063338_add Photo Couches table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addcommentstabel" Collapsed="true">
+    <Position X="25.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513114821_add comments tabel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addclientstoComments" Collapsed="true">
+    <Position X="37.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513170714_add clients to Comments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addCommentstoCouches" Collapsed="true">
+    <Position X="27.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513221204_add Comments to Couches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.TestaddCommentstoCouches" Collapsed="true">
+    <Position X="32.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513221525_Test add Comments to Couches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addCommentstoCouchesNORM" Collapsed="true">
+    <Position X="29" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513221917_add Comments to Couches NORM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addCommentstoCouchesNotNorm" Collapsed="true">
+    <Position X="30.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513222702_add Comments to Couches Not Norm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addCommentstoCouchesPLSNorm" Collapsed="true">
+    <Position X="32.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513223113_add Comments to Couches PLS Norm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.addPhototoClients" Collapsed="true">
+    <Position X="25.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20230513231202_add Photo to Clients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Migrations.BDContextModelSnapshot" Collapsed="true">
+    <Position X="36" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\BDContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.AbonementsViewModel" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAEYYQEAAAOAAAQgAAACBEAAQAAAAQDAAQAA=</HashCode>
+      <FileName>ViewModel\AbonementsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.AdminPanelViewModel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>KGhDOIaEkotcKayWgAjIIiY4kiKKHGsUpP0gAKASBj0=</HashCode>
+      <FileName>ViewModel\AdminPanelViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.CouchesViewModel" Collapsed="true">
+    <Position X="5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAACAAAAEAAAAAAAAABA=</HashCode>
+      <FileName>ViewModel\CouchesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.LoginRegistrationViewModel" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AKACgYHAVIEQBBJBE6SwACsGQESBQgA6RkAYAACGDBg=</HashCode>
+      <FileName>ViewModel\LoginRegistrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.MainViewModel" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAKKAEFAAAgA+AgEAEICACMAAhAkADAEQCJQUAQSEU=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.ViewModel.ProfileViewModel" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADACCQAAACAEAGgAAAAAAAAAAAABAgAYAAAAQAAAEAE=</HashCode>
+      <FileName>ViewModel\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.UserControls.LoginControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\UserControls\LoginControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.UserControls.LoginD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAgAIAAAAAACAAGAAAAAAAAAAAAAAACAAQ=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\UserControls\LoginD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.UserControls.RegistrationControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\UserControls\RegistrationControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.UserControls.RegistrationD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\UserControls\RegistrationD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.LoginRegisterCoreD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\LoginRegisterCoreD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.LoginRegistration.LoginRegistration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\LoginRegistration\LoginRegistration.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Abonements.AbonementItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Abonements\AbonementItem.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Abonements.AbonementsCore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Abonements\AbonementsCore.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Abonements.AbonementsCoreD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Abonements\AbonementsCoreD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Abonements.AbonementsItemD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Abonements\AbonementsItemD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.AbonementsList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\AbonementsList.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.AbonementsPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\AbonementsPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.AdminPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\AdminPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.CouchesPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\CouchesPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.OrdersList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\OrdersList.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.AdminPanel.OrdersPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\AdminPanel\OrdersPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.CouchComment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\CouchComment.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.CouchCommentsCore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\CouchCommentsCore.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.Couches" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\Couches.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.CouchItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\CouchItem.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.SelectedCouch" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\SelectedCouch.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Couches.SendCouchComment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Couches\SendCouchComment.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Profile.OrderItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Profile\OrderItem.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Profile.OrdersItemD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Profile\OrdersItemD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.Profile.Profile" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\Profile\Profile.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.UserControls.ForMain" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\UserControls\ForMain.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.Main" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\Main\Main.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.Views.Windows.Main.MainCoreD" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABCACAAEAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\Windows\Main\MainCoreD.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessCenter.App" Collapsed="true">
+    <Position X="32.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

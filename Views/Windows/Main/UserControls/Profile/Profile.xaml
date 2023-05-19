@@ -178,7 +178,7 @@
             <Button Command="{Binding SaveAllChanges}" FontSize="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
             ConverterParameter=0.02}" Width="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
             ConverterParameter=0.4}" Height="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
-            ConverterParameter=0.04}" Foreground="White" Background="#A093C5" Grid.Row="2" Content="Оформить">
+            ConverterParameter=0.04}" Foreground="White" Background="#A093C5" Grid.Row="2" Content="Сохранить изменения">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -191,12 +191,20 @@
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <!--<RowDefinition Height="0.1*"/>-->
+                <RowDefinition Height="0.1*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <!--<Button Command="{Binding ReloadOrdersHisory}" Content="R" Grid.Row="0" Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0"/>-->
 
+            <Button Command="{Binding ReloadOrdersHisory}" BorderThickness="0" Width="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.04}" Height="{Binding ElementName=profileCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter},
+            ConverterParameter=0.04}">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\Reboot.png"/>
+                </Button.Background>
+            </Button>
+            
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0"
                       Grid.Row="1" Background="Transparent"
                       ItemsSource="{Binding ClientOrders}"

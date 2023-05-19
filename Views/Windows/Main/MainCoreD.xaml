@@ -393,9 +393,9 @@
                                Grid.Column="1" Text="{Binding Client.Login}"
                                />
 
-                                    <Image Grid.Column="2" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\settings.png"
+                                    <!--<Image Grid.Column="2" Source="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\settings.png"
                            Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"
-                               MaxHeight="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"/>
+                               MaxHeight="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"/>-->
 
                                     <Image Grid.Column="3" x:Name="collapsImg" Width="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}"
                                Height="{Binding ElementName=MainWinCore, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.03}" PreviewMouseDown="collapsImg_PreviewMouseDown" >

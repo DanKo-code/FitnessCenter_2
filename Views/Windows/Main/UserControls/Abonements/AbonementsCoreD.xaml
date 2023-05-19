@@ -319,6 +319,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel HorizontalAlignment="Center" Grid.Column="0" Orientation="Horizontal">
@@ -374,6 +375,12 @@
                 </TextBox>-->
 
             </StackPanel>
+
+            <Button Command="{Binding ReloudAbonementsList}" BorderThickness="0" Grid.Column="2" Width="40" Height="40" Margin="10">
+                <Button.Background>
+                    <ImageBrush ImageSource="D:\2k2s\OOP_MY\Курсач\моя залупа\Работал MyListBox и delete\Test\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\Resources\MainCoreImages\Reboot.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
 
         
@@ -384,7 +391,7 @@
                       VerticalContentAlignment="Center">
             <!--Tyt-->
             <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate >
+                <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center" ItemWidth="Auto" ItemHeight="Auto"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
