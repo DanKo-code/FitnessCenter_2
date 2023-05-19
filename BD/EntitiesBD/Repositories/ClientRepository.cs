@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FitnessCenter.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,8 +63,14 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
             {
                 Clients temp = context.Clients.Include(x=>x.Orders).FirstOrDefault(x => x.Login == clientLogin);
 
-                if (temp.Password == clientPassword) 
+                //старая проверка без хэша
+                //if (temp.Password == clientPassword) 
+                //    return temp;
+
+                if(PasswordHasher.VerifyPassword(clientPassword, temp.Password))
+                {
                     return temp;
+                }
 
                 return null;
             }

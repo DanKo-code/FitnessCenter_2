@@ -209,7 +209,6 @@ namespace FitnessCenter.ViewModel
         }
         #endregion
 
-
         #region SignInLogin
         private string _signInLogin;
 
@@ -530,6 +529,8 @@ namespace FitnessCenter.ViewModel
 
         private void OnRegisterCommand(object p)
         {
+            
+
             if(context.ClientRepo.CheckLogin(NewClient.Login))
             {
                 ErrorText = "Пользователь с таким логином уже зарегистрирован!";
@@ -537,9 +538,11 @@ namespace FitnessCenter.ViewModel
                 return;
             }
 
-            context.ClientRepo.AddClient(NewClient);
+            //хэштруем пароль
+            string hashedPassword = PasswordHasher.HashPassword(NewClient.Password);
+            NewClient.Password = hashedPassword;
 
-            //TODO Проверка, есть ли такой логин в бд или нет
+            context.ClientRepo.AddClient(NewClient);
 
             OnShowLoginCommand(null);
         }
@@ -565,13 +568,6 @@ namespace FitnessCenter.ViewModel
                 tempStrPass = SignInPassword;
             }
             
-
-            
-            
-            
-            
-            
-   
             if (!context.ClientRepo.CheckLogin(SignInLogin))
             {
                 ErrorText = "Неверный логин!";
