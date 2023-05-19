@@ -34,35 +34,17 @@
         <StackPanel Grid.Column="0">
             <StackPanel Margin="5">
                 <Label Content="Название:"/>
-                <TextBox BorderBrush="{Binding AbonementTitleBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Title, UpdateSourceTrigger=PropertyChanged}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding CheckTitleCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
+                <TextBox Text="{Binding SelectedProducts.Title, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Margin="5">
                 <Label Content="Возраст:"/>
-                <TextBox BorderBrush="{Binding AbonementAgeBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Age, UpdateSourceTrigger=PropertyChanged}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding CheckAgeCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
+                <TextBox Text="{Binding SelectedProducts.Age, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Margin="5">
-                <Label Content="Срок действия (месяцев):"/>
-                <TextBox BorderBrush="{Binding AbonementValidityBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Validity, UpdateSourceTrigger=PropertyChanged}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding CheckValidityCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
+                <Label Content="Срок действия:"/>
+                <TextBox Text="{Binding SelectedProducts.Validity, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Margin="5">
@@ -70,8 +52,22 @@
                 <TextBox Text="{Binding SelectedProducts.VisitingTime, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
+            <StackPanel Margin="5">
+                <Label Content="Доступное кол-во:"/>
+                <TextBox Text="{Binding SelectedProducts.Amount, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <!--<StackPanel Margin="5">
+                <Label Content="Включено:"/>
+                --><!--<MultiComboBox>
+                    <ComboBoxItem Content="Бассейн"/>
+                    <ComboBoxItem Content="Тренажерный зал"/>
+                    <ComboBoxItem Content="Сауна"/>
+                </MultiComboBox>--><!--
+            </StackPanel>-->
+
             <!--#region Секция для добавления сервиса-->
-            <StackPanel Margin="5" Panel.ZIndex="100">
+            <StackPanel Margin="5">
                 <Label Content="Услуги:"/>
 
                 <Grid>
@@ -104,7 +100,12 @@
                         <Button Command="{Binding RemoveService}" Content="Удалить" Grid.Column="2"/>
                     </Grid>
 
-                    <help:MyListBox x:Name="MyListBox" RSelectedItem="{Binding RSelectedItem}" SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxHeight="100" Visibility="{Binding ServicesListVisibility}" ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple" ContextMenu="{StaticResource MyListBoxContextMenu}">
+                    <help:MyListBox x:Name="MyListBox" 
+                                    RSelectedItem="{Binding RSelectedItem}"
+                                    SelectedItems="{Binding SelectedProducts.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    MaxHeight="100" Visibility="{Binding ServicesListVisibility}"
+                                    ItemsSource="{Binding ServicesList}" Grid.Row="1" SelectionMode="Multiple"
+                                    ContextMenu="{StaticResource MyListBoxContextMenu}">
 
                         <help:MyListBox.ItemTemplate>
                             <DataTemplate>
@@ -120,17 +121,13 @@
                 </Grid>
             </StackPanel>
             
+            
+            
             <!--#endregion-->
 
             <StackPanel Margin="5">
                 <Label Content="Стоимость:"/>
-                <TextBox BorderBrush="{Binding AbonementPriceBorder, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SelectedProducts.Price, UpdateSourceTrigger=PropertyChanged}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding CheckPriceCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
+                <TextBox Text="{Binding SelectedProducts.Price, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </StackPanel>
 

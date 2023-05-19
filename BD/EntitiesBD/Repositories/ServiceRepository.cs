@@ -53,11 +53,33 @@ namespace FitnessCenter.BD.EntitiesBD.Repositories
             }
         }
 
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <returns></returns>
         public List<Services> GetAllServices()
         {
             try
             {
-                return context.Services.Include(x=>x.Couches).Include(x=>x.Abonements).ToList();
+                //в этом месте ломается логика услуг
+
+                //возможно придется делать через foreach
+
+                List<Services> tempList = new List<Services>();
+
+                //foreach (var item in collection)
+                //{
+
+                //}
+
+
+                return context.Services
+                    .Include(x => x.Couches)
+                    .Include(x => x.Abonements)
+                    .ToList();
+
+
+
             }
             catch
             {

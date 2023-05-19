@@ -1,4 +1,5 @@
-﻿using FitnessCenter.BD.EntitiesBD;
+﻿using FitnessCenter.BD;
+using FitnessCenter.BD.EntitiesBD;
 using FitnessCenter.Helpers;
 using FitnessCenter.ViewModel;
 using System;
@@ -39,6 +40,16 @@ namespace FitnessCenter.Views.Windows.Main
 
         private void closeImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            //Придеться удалять услуги, на которые никто не ссылается
+
+            //using (BDContext bd = new BDContext())
+            //{
+            //    for (int i = 0; i < bd.Services.Count(); i++)
+            //    {
+            //        var temp = bd.Services.;
+            //    }
+            //}
+
             Application.Current.Shutdown();
         }
 
