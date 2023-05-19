@@ -70,20 +70,6 @@
                 <TextBox Text="{Binding SelectedProducts.VisitingTime, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <!--<StackPanel Margin="5">
-                <Label Content="Доступное кол-во:"/>
-                <TextBox Text="{Binding SelectedProducts.Amount, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>-->
-
-            <!--<StackPanel Margin="5">
-                <Label Content="Включено:"/>
-                --><!--<MultiComboBox>
-                    <ComboBoxItem Content="Бассейн"/>
-                    <ComboBoxItem Content="Тренажерный зал"/>
-                    <ComboBoxItem Content="Сауна"/>
-                </MultiComboBox>--><!--
-            </StackPanel>-->
-
             <!--#region Секция для добавления сервиса-->
             <StackPanel Margin="5" Panel.ZIndex="100">
                 <Label Content="Услуги:"/>
@@ -133,8 +119,6 @@
 
                 </Grid>
             </StackPanel>
-            
-            
             
             <!--#endregion-->
 

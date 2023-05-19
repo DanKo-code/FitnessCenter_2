@@ -33,9 +33,9 @@ namespace FitnessCenter.Helpers
             {
                 smtp.Send(mail);
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("Ошибка отправки на почту!");
+                MessageBox.Show($"Ошибка отправки на почту! {e.Message}");
                 
             }
             

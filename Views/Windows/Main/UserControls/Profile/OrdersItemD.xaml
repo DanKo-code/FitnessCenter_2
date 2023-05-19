@@ -134,7 +134,11 @@
             </StackPanel>
             <Label Grid.Row="2"/>
 
-            
+            <!--<Border Grid.Column="0" Grid.RowSpan="3" Width="400" Height="100" Background="Transparent">
+                                <TextBlock HorizontalAlignment="Center" Foreground="Gold" FontSize="40" 
+                           Text="{Binding Status, Converter={StaticResource OrderStatusConverter}, UpdateSourceTrigger=PropertyChanged}"
+                           Padding="10" VerticalAlignment="Center"/>
+                            </Border>-->
         </Grid>
     </Border>
   

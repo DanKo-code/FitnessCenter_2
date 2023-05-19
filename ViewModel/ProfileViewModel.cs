@@ -11,6 +11,9 @@ using System.Windows;
 using FitnessCenter.Views.Windows.Main.UserControls.Abonements;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using FitnessCenter.BD;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitnessCenter.ViewModel
 {
@@ -101,7 +104,10 @@ namespace FitnessCenter.ViewModel
         }
         private void OnReloadOrdersHisoryCommand(object p)
         {
-            ClientOrders = context.OrderRepo.GetAllOrder().Where(x => x.ClientsId == CurrentClient.Id).ToList();
+            using (BDContext bd = new BDContext())
+            {
+                ClientOrders = bd.Orders.Include(x => x.Abonement).Include(x => x.Client).ToList();
+            }
         }
         #endregion
 
