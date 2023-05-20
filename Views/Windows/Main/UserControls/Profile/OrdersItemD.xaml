@@ -106,7 +106,7 @@
                 <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Foreground="White" Text="Услуги:"/>
 
                 <ListView  ScrollViewer.CanContentScroll="False" BorderThickness="0" Background="Transparent" 
-                           ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                           ItemsSource="{Binding Abonement.Services, UpdateSourceTrigger=PropertyChanged}">
 
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -118,8 +118,8 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="10">
-                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                                <TextBlock Foreground="White" Text="{Binding Title}"/>
+                                <Image Source="{Binding Phote, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="50"/>
+                                <TextBlock Foreground="White" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
 
                                 <!--<Grid>

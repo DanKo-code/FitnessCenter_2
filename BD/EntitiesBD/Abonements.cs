@@ -27,7 +27,6 @@ namespace FitnessCenter.BD.EntitiesBD
                     $"<b>Возраст:</b> {_age}<br>" +
                     $"<b>Срок действия:</b> {_validity}<br>" +
                     $"<b>Время посещения:</b> {_visitingTime}<br>" +
-                    $"<b>Доступное количество:</b> {_amount}<br>" +
                     $"<b>Стоимость:</b> {_price}<br>";
         }
 

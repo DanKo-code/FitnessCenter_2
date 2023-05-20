@@ -12,6 +12,7 @@ using System.Windows;
 using FitnessCenter.Helpers;
 using FitnessCenter.Views.Windows.LoginRegistration;
 using FitnessCenter.Views.Windows.Main;
+using FitnessCenter.BD;
 
 namespace FitnessCenter.ViewModel
 {
@@ -19,7 +20,16 @@ namespace FitnessCenter.ViewModel
     {
         private UnitOfWork context;
 
-        public ObservableCollection<Couches> CouchesList { get; set; }
+        private ObservableCollection<Couches> _couchesList;
+        public ObservableCollection<Couches> CouchesList
+        {
+            get => _couchesList;
+            set
+            {
+                _couchesList = value;
+                OnPropertyChanged("CouchesList");
+            }
+        }
 
         #region Accessors (helpers for ui design)
 
@@ -55,7 +65,12 @@ namespace FitnessCenter.ViewModel
 
         private void OnReloudAbonementsListCommand(object p)
         {
-            CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
+            using (BDContext bd = new BDContext())
+            {
+                CouchesList = new ObservableCollection<Couches>(bd.Couches.ToList());
+            }
+
+                //CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
         }
         #endregion
 

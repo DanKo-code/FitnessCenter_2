@@ -34,7 +34,7 @@ Background="Transparent"
                 
 
                 <Border BorderThickness="0" Width="500" Height="40" Background="#7564A3" Grid.Row="3" CornerRadius="20">
-                    <Button BorderThickness="0" FontSize="24"  Foreground="White" Content="Просмотреть отзывы" Background="Transparent" Click="Button_Click"/>
+                    <Button BorderThickness="0" FontSize="24"  Foreground="White" Content="Оставить отзыв" Background="Transparent" Click="Button_Click"/>
                 </Border>
 
             </Grid>

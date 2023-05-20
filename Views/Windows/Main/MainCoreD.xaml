@@ -23,6 +23,9 @@
         
         Title="MainCoreD" 
         d:Width="1550" d:Height="1000"
+        
+        Height="650"
+        
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" 
         

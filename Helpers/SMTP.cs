@@ -31,7 +31,7 @@ namespace FitnessCenter.Helpers
             //TODO DSVDFV
             try
             {
-                smtp.Send(mail);
+                smtp.SendAsync(mail,null);
             }
             catch(Exception e)
             {

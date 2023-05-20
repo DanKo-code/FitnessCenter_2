@@ -631,12 +631,12 @@ namespace FitnessCenter.ViewModel
 
             //********************************Отправка на почту**************************************************************
 
-            MessageBox.Show("Начало отправки!");
+            //MessageBox.Show("Начало отправки!");
             var mail = Helpers.SMTP.CreateMail("FitnessCenter", Helpers.CurrentClient.adminEmail, Helpers.CurrentClient.client.Email, $"Заказ!", $"<b>Ваш заказ</b><br><br>{SelectedOrders.Abonement.ToString()} <br><b>Статуc:</b> одобрен! :)");
 
             Helpers.SMTP.SendMail("smtp.gmail.com", 587, Helpers.CurrentClient.adminEmail, Helpers.CurrentClient.adminPass, mail);
 
-            MessageBox.Show("Отправка на почту");
+            //MessageBox.Show("Отправка на почту");
         }
         #endregion
 

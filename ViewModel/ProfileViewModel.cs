@@ -106,7 +106,7 @@ namespace FitnessCenter.ViewModel
         {
             using (BDContext bd = new BDContext())
             {
-                ClientOrders = bd.Orders.Include(x => x.Abonement).Include(x => x.Client).ToList();
+                ClientOrders = bd.Orders.Include(o => o.Client).Include(o => o.Abonement).Include(o => o.Abonement.Services).Where(x => x.ClientsId == Helpers.CurrentClient.client.Id).ToList();
             }
         }
         #endregion

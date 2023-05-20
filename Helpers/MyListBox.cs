@@ -32,8 +32,6 @@ namespace FitnessCenter.Helpers
             }
         }
 
-        /// <summary>
-
         public static readonly DependencyProperty RSelectedItemProperty =
             DependencyProperty.Register("RSelectedItem", typeof(Services), typeof(MyListBox),
                 new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
@@ -62,12 +60,9 @@ namespace FitnessCenter.Helpers
 
             RSelectedItem = temp;
 
-            //SelectedItem = ItemContainerGenerator.ItemFromContainer((DependencyObject)e.OriginalSource);
             e.Handled = true;
         }
 
-        /// </summary>
-        /// <param name="e"></param>
 
 
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)

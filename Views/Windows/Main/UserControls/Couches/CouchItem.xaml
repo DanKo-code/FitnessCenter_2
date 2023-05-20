@@ -25,7 +25,7 @@
                 <Border Grid.Row="0" CornerRadius="20">
                     <Border.Background>
                         <ImageBrush Stretch="UniformToFill"
-                         ImageSource="{Binding Photo}"/>
+                         ImageSource="{Binding Photo, UpdateSourceTrigger=PropertyChanged}"/>
                     </Border.Background>
                 </Border>
 
@@ -37,7 +37,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontSize="16" Grid.Row="0" HorizontalAlignment="Center" Foreground="white" Text="{Binding Name}"/>
+                    <TextBlock FontSize="16" Grid.Row="0" HorizontalAlignment="Center" Foreground="white" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Grid.Row="1" MinWidth="100" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Content="Оставить отзыв"
                             Background="#7564A3" Style="{DynamicResource myButton}" Click="Button_Click_1" />
