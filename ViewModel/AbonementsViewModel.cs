@@ -1,7 +1,9 @@
-﻿using FitnessCenter.BD.EntitiesBD;
+﻿using FitnessCenter.BD;
+using FitnessCenter.BD.EntitiesBD;
 using FitnessCenter.BD.EntitiesBD.Repositories;
 using FitnessCenter.Core;
 using FitnessCenter.Views.Windows.Main.UserControls.AdminPanel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -205,6 +207,12 @@ namespace FitnessCenter.ViewModel
             //AbonementItems = Helpers.CurrentClient.abonements;
             AbonementItems = context.AbonementRepo.GetAllAbonements().ToList();
             SearchedList = new ObservableCollection<Abonements>( context.AbonementRepo.GetAllAbonements().ToList());
+
+            using(BDContext bd = new BDContext())
+            {
+                AbonementItems = bd.Abonements.Include(x=>x.Services).ToList();
+                SearchedList = new ObservableCollection<Abonements>(bd.Abonements.Include(x => x.Services).ToList());
+            }
         }
         #endregion
 

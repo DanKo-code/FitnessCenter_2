@@ -107,7 +107,7 @@
                     <StackPanel VerticalAlignment="Center"  Grid.Column="0" >
                         <Button Command="{Binding Deselect}" Content="Снять выбор" Margin="10"/>
                         <Button Command="{Binding AddAbonement}" Content="Добавить" Margin="10"/>
-                        <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"  Margin="10">
+                        <TextBox Visibility="{Binding SearchBoxVisibility}" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"  Margin="10">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="TextChanged">
                                     <i:InvokeCommandAction Command="{Binding SearchAbonementByName}" />
@@ -118,7 +118,7 @@
 
                     <StackPanel VerticalAlignment="Center"  Grid.Column="2">
                         <Button Command="{Binding RemoveAbonement}" Content="Удалить" Margin="10"/>
-                        <ComboBox Text="Фильтр" Margin="10">
+                        <ComboBox Visibility="{Binding ComboBoxVisibility}" Text="Фильтр" Margin="10">
                             <ComboBoxItem Content="Название">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseDown">

@@ -274,7 +274,7 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="5">
+                        <Grid Visibility="{Binding AdminPanelShow}" Grid.Row="5">
 
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="PreviewMouseDown">

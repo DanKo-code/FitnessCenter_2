@@ -54,6 +54,42 @@ namespace FitnessCenter.ViewModel
 
         #region Accessors (helpers for ui design)
 
+        #region ComboBoxVisibility
+        private Visibility _comboBoxVisibility = Visibility.Visible;
+
+        public Visibility ComboBoxVisibility
+        {
+            get => _comboBoxVisibility;
+
+            set
+            {
+                if (_comboBoxVisibility != value)
+                {
+                    _comboBoxVisibility = value;
+                    OnPropertyChanged(nameof(ComboBoxVisibility));
+                }
+            }
+        }
+        #endregion
+
+        #region SearchBoxVisibility
+        private Visibility _searchBoxVisibility = Visibility.Visible;
+
+        public Visibility SearchBoxVisibility
+        {
+            get => _searchBoxVisibility;
+
+            set
+            {
+                if (_searchBoxVisibility != value)
+                {
+                    _searchBoxVisibility = value;
+                    OnPropertyChanged(nameof(SearchBoxVisibility));
+                }
+            }
+        }
+        #endregion
+
         #region OrdersPanelComboBoxVisibility
         private Visibility _ordersPanelComboBoxVisibility = Visibility.Collapsed;
 
@@ -921,6 +957,9 @@ namespace FitnessCenter.ViewModel
             GridSplitterVisibility = Visibility.Visible;
             OrdersPanelComboBoxVisibility = Visibility.Collapsed;
 
+            SearchBoxVisibility = Visibility.Visible;
+            ComboBoxVisibility = Visibility.Visible;
+
             CouchesListVisibility = Visibility.Collapsed;
             AbonementsListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;
@@ -969,6 +1008,9 @@ namespace FitnessCenter.ViewModel
 
             GridSplitterVisibility = Visibility.Visible;
             OrdersPanelComboBoxVisibility = Visibility.Collapsed;
+
+            SearchBoxVisibility = Visibility.Collapsed;
+            ComboBoxVisibility = Visibility.Collapsed;
 
             CouchesListVisibility = Visibility.Visible;
             OrdersListVisibility = Visibility.Collapsed;

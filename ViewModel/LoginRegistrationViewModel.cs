@@ -274,7 +274,8 @@ namespace FitnessCenter.ViewModel
         #region NewClient
         //public Clients _newClient = new Clients("", "", "", "", "", "");
         public Clients _newClient = new Clients { Id = new Guid(), Email = "", Login = "", Name = "", Password = "", Phone = "", Role = 0, SurName = "",
-            Photo = "D:\\2k2s\\OOP_MY\\Курсач\\моя залупа\\Работал MyListBox и delete\\Test\\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\\Resources\\Images\\PhotoMssing.png" };
+            Photo = "D:\\2k2s\\OOP_MY\\Курсач\\моя залупа\\Работал MyListBox и delete\\Test\\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\\Resources\\MainCoreImages\\PhotoMssing.png"
+        };
 
         public Clients NewClient
         {

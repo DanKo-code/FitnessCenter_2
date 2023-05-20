@@ -33,7 +33,7 @@
             <StackPanel>
 
                 
-                <Image Grid.Row="0" Width="260" Height="100" Stretch="Fill" HorizontalAlignment="Left"
+                <Image Grid.Row="0" Width="150" Height="100" Stretch="Fill" HorizontalAlignment="Left"
                VerticalAlignment="Center" Source="{Binding SelectedCouches.Photo, Converter={StaticResource MissingPhotoConverter}, UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="PreviewMouseRightButtonDown">

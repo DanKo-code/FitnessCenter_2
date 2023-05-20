@@ -28,7 +28,23 @@ namespace FitnessCenter.ViewModel
 
         #region Accessors (helpers for ui design)
 
-        
+        #region AdminPanelShow
+        private Visibility _adminPanelShow = Visibility.Collapsed;
+
+        public Visibility AdminPanelShow
+        {
+            get => _adminPanelShow;
+
+            set
+            {
+                if (_adminPanelShow != value)
+                {
+                    _adminPanelShow = value;
+                    OnPropertyChanged(nameof(AdminPanelShow));
+                }
+            }
+        }
+        #endregion
 
         #region Client
         private Clients _client;
@@ -364,6 +380,12 @@ namespace FitnessCenter.ViewModel
         public MainViewModel(Clients client)
         {
             Client = client;
+
+            if(Helpers.CurrentClient.client.Role == 1)
+            {
+                AdminPanelShow = Visibility.Visible;
+            }
+            //AdminPanelShow = Helpers.CurrentClient.client.Role
 
             GoLoginRegistration = new RelayCommand(OnGoLoginRegistrationCommand, CanGoLoginRegistrationCommand);
 

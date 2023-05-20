@@ -56,7 +56,7 @@
                            />
 
                         <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
-                                   Text="{Binding Age}" />
+                                   Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
@@ -67,7 +67,7 @@
                            />
 
                         <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
-                                   Text="{Binding Validity}" />
+                                   Text="{Binding Validity, UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
@@ -78,7 +78,7 @@
                            />
 
                         <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Grid.Column="2"
-                                   Text="{Binding VisitingTime}" />
+                                   Text="{Binding VisitingTime, UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
@@ -90,14 +90,14 @@
                            />
 
                         <TextBlock FontSize="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.025}" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
-                                   Text="{Binding Price}" />
+                                   Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </Grid>
 
                 <Border Grid.Column="1" Width="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.4}" Height="{Binding ElementName=AbonItem, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.4}" CornerRadius="20">
                     <Border.Background>
                         <ImageBrush Stretch="UniformToFill"
-                         ImageSource="{Binding Photo}"/>
+                         ImageSource="{Binding Photo, UpdateSourceTrigger=PropertyChanged}"/>
                     </Border.Background>
                 </Border>
             </Grid>

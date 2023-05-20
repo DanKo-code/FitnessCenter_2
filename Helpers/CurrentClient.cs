@@ -13,11 +13,17 @@ namespace FitnessCenter.Helpers
 
         public static List<Abonements> abonements;
 
-        public const String adminEmail = "ilyinnik3@gmail.com";
-        //public const String adminEmail = "cyberxleviathan@gmail.com";
+        //моя первая
+        //public const String adminEmail = "ilyinnik3@gmail.com";
+        //public const String adminPass = "aojiuhowjilqvtnb";
 
-        public const String adminPass = "aojiuhowjilqvtnb";
+        //Ирина
+        //public const String adminEmail = "cyberxleviathan@gmail.com";
         //public const String adminPass = "mvhbmkztsefeqbtk";
+
+        //моя вторая
+        public const String adminEmail = "karibynik@gmail.com";
+        public const String adminPass = "nlwntcwpcjwqadmf";
 
         public static String securePassBox;
     }

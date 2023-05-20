@@ -118,8 +118,8 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="10">
-                                <Image Source="{Binding Abonement.Phote}" Width="50" Height="50"/>
-                                <TextBlock Foreground="White" Text="{Binding Abonement.Title}"/>
+                                <Image Source="{Binding Phote}" Width="50" Height="50"/>
+                                <TextBlock Foreground="White" Text="{Binding Title}"/>
                                 </StackPanel>
 
                                 <!--<Grid>

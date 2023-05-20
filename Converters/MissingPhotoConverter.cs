@@ -14,7 +14,7 @@ namespace FitnessCenter.Converters
         {
             if (value == null || ((string)value) == "")
             {
-                return "D:\\2k2s\\OOP_MY\\Курсач\\моя залупа\\Работал MyListBox и delete\\Test\\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\\Resources\\Images\\PhotoMssing.png";
+                return "D:\\2k2s\\OOP_MY\\Курсач\\моя залупа\\Работал MyListBox и delete\\Test\\FintessCenter-08b29904dd9b128bdfdea8ffc3c463cad2e1991c\\Resources\\MainCoreImages\\PhotoMssing.png";
             }
 
             return value;
