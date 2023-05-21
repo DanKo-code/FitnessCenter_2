@@ -12,6 +12,7 @@
         ResizeMode="NoResize"
 AllowsTransparency="True"
 Background="Transparent"
+        WindowStartupLocation="CenterScreen"
              BorderThickness="0">
 
 
@@ -47,7 +48,7 @@ Background="Transparent"
                         <StackPanel Margin="0 5 0 0" Grid.Row="2">
                             <TextBlock Foreground="White" Text="Услуги:"/>
 
-                            <ListView  ScrollViewer.CanContentScroll="False" BorderThickness="0" Background="Transparent" 
+                            <ListView  ScrollViewer.CanContentScroll="True" BorderThickness="0" Background="Transparent" 
                            ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                                 <ListView.ItemsPanel>

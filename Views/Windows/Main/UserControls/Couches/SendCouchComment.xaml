@@ -11,8 +11,10 @@
 AllowsTransparency="True"
 Background="Transparent"
              BorderThickness="0"
+        WindowStartupLocation="CenterScreen"
         
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="600"
+        Height="350" Width="600">
 
     <Window.Effect>
         <DropShadowEffect Color="Black" Direction="270" ShadowDepth="10" Opacity="0.5"/>

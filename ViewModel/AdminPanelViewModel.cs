@@ -658,12 +658,12 @@ namespace FitnessCenter.ViewModel
 
             //********************************Отправка на почту**************************************************************
 
-            MessageBox.Show("Начало отправки!");
+            //MessageBox.Show("Начало отправки!");
             var mail = Helpers.SMTP.CreateMail("FitnessCenter", Helpers.CurrentClient.adminEmail, Helpers.CurrentClient.client.Email, $"Заказ!", $"<b>Ваш заказ</b><br><br>{SelectedOrders.Abonement.ToString()} <br><b>Статуc:</b> отклонен! :)");
 
             Helpers.SMTP.SendMail("smtp.gmail.com", 587, Helpers.CurrentClient.adminEmail, Helpers.CurrentClient.adminPass, mail);
 
-            MessageBox.Show("Отправка на почту");
+            //MessageBox.Show("Отправка на почту");
         }
         #endregion
 
@@ -861,6 +861,29 @@ namespace FitnessCenter.ViewModel
         private void OnSortAbonementByNameCommand(object p)
         {
             var temp = SearchedList.OrderBy(x => x.Title).ToList();
+
+            SearchedList.Clear();
+
+            foreach (var item in temp)
+            {
+                SearchedList.Add(item);
+            }
+        }
+        #endregion
+
+        #region SortAbonementByAge
+        public ICommand SortAbonementByAge { get; }
+
+        private bool CanSortAbonementByAgeCommand(object p)
+        {
+            //return !canAdd;
+
+            return true;
+        }
+
+        private void OnSortAbonementByAgeCommand(object p)
+        {
+            var temp = SearchedList.OrderBy(x => x.Age).ToList();
 
             SearchedList.Clear();
 
@@ -1091,6 +1114,8 @@ namespace FitnessCenter.ViewModel
 
         public AdminPanelViewModel()
         {
+            SortAbonementByAge = new RelayCommand(OnSortAbonementByAgeCommand, CanSortAbonementByAgeCommand);
+
             ShowUndressedOrders = new RelayCommand(OnShowUndressedOrdersCommand, CanShowUndressedOrdersCommand);
 
             ShowRejectOrders = new RelayCommand(OnShowRejectOrdersCommand, CanShowRejectOrdersCommand);

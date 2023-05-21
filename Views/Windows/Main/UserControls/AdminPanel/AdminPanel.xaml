@@ -126,10 +126,13 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </ComboBoxItem>
-                            <ComboBoxItem Content="Возраст"/>
-                            <ComboBoxItem Content="Срок действий"/>
-                            <ComboBoxItem Content="Время посещений"/>
-                            <ComboBoxItem Content="Доступное кол-во"/>
+                            <ComboBoxItem Content="Возраст">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <i:InvokeCommandAction Command="{Binding SortAbonementByAge}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBoxItem>
                         </ComboBox>
                         <Button Command="{Binding SaveAllChanges}" Content="Сохранить все изменения" Margin="10"/>
                     </StackPanel>
@@ -153,7 +156,19 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Срок действия">
+                        <GridViewColumn Header="Возраст:">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="16"
+                                           Foreground="#99aab5" 
+                                           Margin="10,0,0,0"></TextBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Срок действия (месяцев)">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding Validity}" 
@@ -188,7 +203,7 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <ListBox Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                                        <ListBox Background="Transparent" Grid.Row="0" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                                             <ListBox.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -198,9 +213,9 @@
 
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
-                                                    <StackPanel>
+                                                    <StackPanel Background="#A093C5">
                                                         <Image Source="{Binding Phote}" Width="50" Height="50"/>
-                                                        <TextBlock Text="{Binding Title}"/>
+                                                        <TextBlock Foreground="White" Text="{Binding Title}"/>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
@@ -319,7 +334,7 @@
                         <GridViewColumn Header="Услуги:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ListBox ItemsSource="{Binding Abonement.Services, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListBox Background="Transparent" ItemsSource="{Binding Abonement.Services, UpdateSourceTrigger=PropertyChanged}">
 
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -329,7 +344,7 @@
 
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
-                                                <StackPanel>
+                                                <StackPanel Background="#A093C5">
                                                     <Image Source="{Binding Phote}" Width="50" Height="50"/>
                                                     <TextBlock Text="{Binding Title}"/>
                                                 </StackPanel>
@@ -407,7 +422,7 @@
                         <GridViewColumn Header="Услуги:">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ListBox ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListBox Background="Transparent" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}">
 
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -417,7 +432,7 @@
 
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
-                                                <StackPanel>
+                                                <StackPanel Background="#A093C5">
                                                     <Image Source="{Binding Phote}" Width="50" Height="50"/>
                                                     <TextBlock Text="{Binding Title}"/>
                                                 </StackPanel>

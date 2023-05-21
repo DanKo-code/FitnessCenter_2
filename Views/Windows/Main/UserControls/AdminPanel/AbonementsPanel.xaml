@@ -43,7 +43,7 @@
             </StackPanel>
 
             <StackPanel Margin="5">
-                <Label Content="Срок действия:"/>
+                <Label Content="Срок действия (месяцев):"/>
                 <TextBox Text="{Binding SelectedProducts.Validity, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 

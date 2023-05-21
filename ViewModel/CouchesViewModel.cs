@@ -13,6 +13,7 @@ using FitnessCenter.Helpers;
 using FitnessCenter.Views.Windows.LoginRegistration;
 using FitnessCenter.Views.Windows.Main;
 using FitnessCenter.BD;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitnessCenter.ViewModel
 {
@@ -67,7 +68,7 @@ namespace FitnessCenter.ViewModel
         {
             using (BDContext bd = new BDContext())
             {
-                CouchesList = new ObservableCollection<Couches>(bd.Couches.ToList());
+                CouchesList = new ObservableCollection<Couches>(bd.Couches.Include(x=>x.Services).ToList());
             }
 
                 //CouchesList = new ObservableCollection<Couches>(context.CoucheRepo.GetAllCouches());
